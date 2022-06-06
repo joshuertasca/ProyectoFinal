@@ -1,0 +1,57 @@
+.backgroundColor{
+  background-color: var(--color3);
+}
+.loginSpace{
+  display: flex;
+  justify-content: center;
+
+}
+.loginSpaceColor{
+  background-color: aliceblue;
+  padding: 34px;
+  border-radius: 20px;
+
+}
+.colorTextGreen{
+  color: var(--color2);
+}
+
+.buttonColor{
+  background-color: var(--color2);
+  display: flex;
+
+}
+.buttonColor:hover{
+  background-color: var(--color3);
+}
+.optionLogin{
+  display: flex;
+  justify-content: center;
+}
+.loginLine{
+  border-left: var(--color4);
+  display: flex;
+  justify-content: center;
+
+}
+
+.sectionFlex{
+  display: flex;
+  justify-content: center;
+}
+.registerButton{
+  color: var(--color2);
+  cursor: pointer;
+}
+.registerButton:hover{
+color: var(--color3);
+}
+.forgotPasswordButton{
+  color: var(--color2);
+}
+.forgotPasswordButton:hover{
+  color: var(--color3);
+}
+.modalTitle{
+  color: var(--color2);
+}
