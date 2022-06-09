@@ -1,148 +1,185 @@
 <body class="backgroundColor">
 
-  <section class="container ">
-      <div class="row ">
-          <div class="d-flex justify-content-center ">
-              <img class="mt-5" width="100"
-                  src="https://images.vexels.com/media/users/3/151730/isolated/lists/eba8fb7318a97a03ca5ad6979eac1e80-dibujos-animados-de-aves-del-bosque.png"
-                  alt="">
-          </div>
-
-          <div class="sectionFlex">
-
-
-
-              <div class=" m-5  ">
-
-                  <h1 class="fw-bold  text-white me-5 display-2">
-                      Academy</h1>
-
-                  <h2 class="text-white fw-bold fs-2"> Diviértete aprendiendo</h2>
-              </div>
-
-
-              <div class="loginSpace m-5 ">
-                  <form class="loginSpaceColor">
-                      <div class="mb-3">
-                          <input placeholder="Usuario" type="email" class="form-control" id="exampleInputEmail1"
-                              aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                          <input placeholder="Contraseña" type="password" class="form-control"
-                              id="exampleInputPassword1">
-                      </div>
-
-                      <div class="optionLogin  ">
-                          <p class="colorTextGreen fw-bold  ">Estudiantes</p>
-                          <div class="form-check form-switch">
-                              <div class="form-check form-switch d-flex justify-content-center me-4">
-                                  <input class="form-check-input" type="checkbox" role="switch" id="switchPs">
-                              </div>
-                          </div>
-                          <p class="colorTextGreen fw-bold ms-3">Profesores</p>
-                      </div>
-                      <input type="hidden" id="buttonSelect">
-                      <div class="d-flex justify-content-center m-3">
-                          <button id="buttonIngresar" type="button"
-                              class="btn btn-primary buttonColor ">Ingresar</button>
-                      </div>
-                      <div class="text-center">
-                          <a class="forgotPasswordButton text-decoration-none" href="">¿Olvidaste tu contraseña?</a>
-                      </div>
-
-                      <hr class="loginLine">
-                      <div class="text-center">
-                          <p>¿No tienes una cuenta?</p>
-
-                          <a class="registerButton text-decoration-none" data-bs-toggle="modal"
-                              data-bs-target="#exampleModal">Regístrate</a>
-                      </div>
-
-
-
-                      <!-- Modal -->
-
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleMo-dalLabel"
-                          aria-hidden="true">
-                          <div class="modal-dialog">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <div>
-                                          <h5 class="modal-title modalTitle fs-4 fw-bold" id="exampleModalLabel">
-                                              Regístrate</h5>
-                                          <h5 class="fs-6">Es muy sencillo</h5>
-                                      </div>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                          aria-label="Close"></button>
-
-                                  </div>
-                                  <div class="modal-body">
-                                      <form [formGroup]='contactoForm' (ngSubmit)='alimentarContacto'>
-                                          <div class="mb-3 col-12 col-md-6">
-                                              <input type="text" formControlName="Nombre" placeholder="Nombres"     class="form-control">
-                                              <span
-                                                  *ngIf="contactoForm.get('Nombre')?.hasError('required') &&contactoForm.get('Nombre')?.touched"
-                                                  class="text-warning fw-bold">Este campo es obligatorio</span>
-                                          </div>
-                                          <div class="mb-3 col-12 col-md-6">
-                                              <input type="text" formControlName="Edad" class="form-control"  placeholder="Edad"
-                                                  id="exampleInputEmail1" aria-describedby="emailHelp">
-                                              <span
-                                                  *ngIf="contactoForm.get('Edad')?.hasError('required') &&contactoForm.get('Edad')?.touched"
-                                                  class="text-warning fw-bold">Este campo es obligatorio</span> <span
-                                                  *ngIf="contactoForm.get('Edad')?.hasError('pattern')"
-                                                  class="text-warning fw-bold">La edad es inválida</span>
-                                          </div>
-                                          <div class="mb-3 col-12 col-md-6">
-                                              <input type="text" formControlName="Celular" placeholder="Celular"   class="form-control"
-                                                  id="exampleInputEmail1" aria-describedby="emailHelp">
-                                              <span
-                                                  *ngIf="contactoForm.get('Celular')?.hasError('required') &&contactoForm.get('Celular')?.touched"
-                                                  class="text-warning fw-bold">Este campo es obligatorio</span> <span
-                                                  *ngIf="contactoForm.get('Celular')?.hasError('pattern')"
-                                                  class="text-warning fw-bold">El celular es
-                                                  inválido</span>
-                                          </div>
-                                          <div class="mb-3 col-12 col-md-6">
-                                              <input placeholder="Email" type="email" formControlName="Email" class="form-control"
-                                                  id="exampleInputEmail1" aria-describedby="emailHelp">
-                                              <span
-                                                  *ngIf="contactoForm.get('Email')?.hasError('required') &&contactoForm.get('Email')?.touched"
-                                                  class="text-warning fw-bold">Este campo es obligatorio</span> <span
-                                                  *ngIf="contactoForm.get('Email')?.hasError('pattern')"
-                                                  class="text-warning fw-bold">El Email es
-                                                  inválido</span>
-                                          </div>
-
-                                      </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary"
-                                          data-bs-dismiss="modal">Volver</button>
-                                      <button type="button" class="btn btn-primary buttonColor">Registrarse</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!--End Modal -->
-
-
-
-
-                  </form>
-
-
-              </div>
-
-
-
-
-
-
-
-          </div>
+  <section class="container">
+    <div class="row ">
+      <div class="d-flex justify-content-center ">
+        <img class="mt-5" width="100"
+          src="https://images.vexels.com/media/users/3/151730/isolated/lists/eba8fb7318a97a03ca5ad6979eac1e80-dibujos-animados-de-aves-del-bosque.png"
+          alt="">
       </div>
+
+      <div class="sectionFlex ">
+
+
+
+        <div class=" m-5  ">
+
+          <h1 class="fw-bold  text-white me-5 display-2">
+            Academy</h1>
+
+          <h2 class="text-white fw-bold fs-2"> Diviértete aprendiendo</h2>
+        </div>
+
+
+            <!-- Inicio Login space -->
+
+
+        <div class="loginSpace m-5 ">
+          <form class="loginSpaceColor" [formGroup]='loginForm' (ngSubmit)='alimentarContacto'>
+            <div class="mb-3">
+              <input type="text" formControlName="Email" placeholder="Email" class="form-control"
+              id="exampleInputEmail1" aria-describedby="emailHelp">
+            <span *ngIf="loginForm.get('Email')?.hasError('required') &&loginForm.get('Email')?.touched"
+              class="text-warning fw-bold">Este campo es obligatorio</span> <span
+              *ngIf="loginForm.get('Email')?.hasError('pattern')" class="text-warning fw-bold ">El correo es inválido.</span>
+            </div>
+            <div class="mb-3">
+
+              <input type="password" formControlName="Password" placeholder="Contraseña" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+              <span *ngIf="loginForm.get('Password')?.hasError('required') &&loginForm.get('Password')?.touched"
+                class="text-warning fw-bold">Este campo es obligatorio</span> <span
+                *ngIf="loginForm.get('Password')?.hasError('pattern')" class="text-warning fw-bold ">La contraseña es inválida.</span>
+            </div>
+
+            <div class="optionLogin  ">
+              <p class="colorTextGreen fw-bold  ">Estudiantes</p>
+              <div class="form-check form-switch">
+                <div class="form-check form-switch d-flex justify-content-center me-4">
+                  <input class="form-check-input" type="checkbox" role="switch" id="switchPs">
+                </div>
+              </div>
+              <p class="colorTextGreen fw-bold ms-3">Profesores</p>
+            </div>
+            <input type="hidden" id="buttonSelect">
+            <div class="d-flex justify-content-center m-3">
+
+
+              <button  type="submit" [disabled]="loginForm.invalid" class="btn btn-primary actionbuttons buttonColor">Ingresar</button>
+            </div>
+
+            <div class="text-center">
+              <a class="forgotPasswordButton text-decoration-none" href="">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <hr class="loginLine">
+            <div class="text-center">
+              <p>¿No tienes una cuenta?</p>
+
+              <a class="registerButton text-decoration-none" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Regístrate</a>
+            </div>
+
+            <!-- End Login space -->
+
+
+
+            <!-- Inicio Modal -->
+
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleMo-dalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div>
+                      <h5 class="modal-title modalTitle fs-3 fw-bold" id="exampleModalLabel">
+                        Regístrate</h5>
+                      <h5 class="fs-6">Es muy sencillo</h5>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                  </div>
+                  <div class="modal-body pb-5">
+                    <form [formGroup]='modalForm' (ngSubmit)='alimentarContacto'>
+                      <div class="d-flex justify-content-center">
+
+                        <div class="mb-3 col-12 col-md-6  me-2 ms-3">
+                          <input type="text" formControlName="Nombre" placeholder="Nombres" class="form-control">
+                          <span
+                            *ngIf="modalForm.get('Nombre')?.hasError('required') &&modalForm.get('Nombre')?.touched"
+                            class="text-warning fw-bold">Este campo es obligatorio</span>
+                        </div>
+                        <div class="mb-3 col-12 col-md-6 me-3">
+                          <input type="text" formControlName="Apellidos" placeholder="Apellidos" class="form-control">
+                          <span
+                            *ngIf="modalForm.get('Nombre')?.hasError('required') &&modalForm.get('Nombre')?.touched"
+                            class="text-warning fw-bold">Este campo es obligatorio</span>
+                        </div>
+
+
+
+
+                      </div>
+
+
+
+
+                      <div class="mb-3 ">
+                        <input type="text" formControlName="Edad" class="form-control" placeholder="Edad"
+                          id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span *ngIf="modalForm.get('Edad')?.hasError('required') &&modalForm.get('Edad')?.touched"
+                          class="text-warning fw-bold">Este campo es obligatorio</span> <span
+                          *ngIf="modalForm.get('Edad')?.hasError('pattern')" class="text-warning fw-bold">La edad es
+                          inválida</span>
+                      </div>
+
+                      <hr class="loginLine ms-5 me-5">
+
+
+
+                      <div class="mb-3">
+                        <input placeholder="Correo electrónico" type="SetEmail" formControlName="SetEmail" class="form-control"
+                          id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span
+                          *ngIf="modalForm.get('SetEmail')?.hasError('required') &&modalForm.get('SetEmail')?.touched"
+                          class="text-warning fw-bold">Este campo es obligatorio</span> <span
+                          *ngIf="modalForm.get('SetEmail')?.hasError('pattern')" class="text-warning fw-bold">El Email
+                          es
+                          inválido</span>
+                      </div>
+
+
+
+                      <div class="mb-3 ">
+                        <input type="password" formControlName="SetPassword" placeholder="Contraseña"
+                          class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span
+                          *ngIf="modalForm.get('SetPassword')?.hasError('required') &&modalForm.get('SetPassword')?.touched"
+                          class="text-warning fw-bold">Este campo es obligatorio</span> <span
+                          *ngIf="modalForm.get('SetPassword')?.hasError('pattern')" class="text-warning mt-3 fs-6 ">Mínimo 8 caracteres, máximo 15, al menos una letra mayúscula, al menos
+                          una letra minucula, al menos un dígito, no espacios, al menos 1 caracter
+                          especial.</span>
+                      </div>
+
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                    <button [disabled]="modalForm.invalid" type="button" class="btn btn-primary buttonColor">Registrarse</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--End Modal -->
+
+
+
+
+          </form>
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
   </section>
 
 </body>
