@@ -14,8 +14,8 @@ router.delete('/delete-profesor/:id', profesorController.borrarProfesor);
 // rutas de coleccion estdiantes
 router.post('/crear-cuenta-estudiante', estudianteController.crearEstudiante)
 router.get('/obtener-lista-estudiantes', estudianteController.obtenerEstudiantes);
-router.get('/estudiante/:usuario', estudianteController.obtenerEstudiante);
-router.put('/actualizar-estudiante/:usuario', estudianteController.actualizarEstudiante);
+router.get('/estudiante/:id', estudianteController.obtenerEstudiante);
+router.put('/actualizar-estudiante/:id', estudianteController.actualizarEstudiante);
 router.delete('/delete-estudiante/:id', estudianteController.borrarEstudiante);
 
 module.exports = router

@@ -1,0 +1,20 @@
+
+.modal {
+  margin-top: 70px;
+  background-image: url("../../../assets/libroAyudante.png");
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: 350px;
+  background-position-y:bottom;
+}
+.modal-footer{
+  height: 50px;
+}
+
+.listaestudiante {
+  cursor: pointer;
+}
+
+.fondotransparente {
+  background-color:var(--transparente)
+}

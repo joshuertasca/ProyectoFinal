@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --color1:#dddf00;
+  --color2: #007f5f;
+  --color3: #80b918;
+  --color4: #FFFFFF
+  --color5: #000000
+  --transparente: #ffebcd00
+}
+
+.color1 {
+  color:var(--color1);
+}
+.color2 {
+  color:var(--color2);
+}
+.color3 {
+  color:var(--color3);
+}
+.color4 {
+  color:var(--color4);
+}
+.color5 {
+  color:var(--color5);
+}
+.transparente {
+  color:var(--transparente);
+}
+
+.bg-color1{
+  background-color:var(--color1);
+}
+.bg-color2{
+  background-color:var(--color2);
+}
+.bg-color3{
+  background-color:var(--color3);
+}
+.bg-transparente{
+  background-color:var(--transparente);
+}
+
+.posicioncomponente {
+  padding-top: 100px;
+  padding-left: 265px;
+  padding-right: 45px;
+}

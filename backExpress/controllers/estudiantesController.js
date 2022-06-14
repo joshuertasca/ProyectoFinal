@@ -33,7 +33,8 @@ exports.obtenerEstudiantes = async(req, res) => {
 
 exports.obtenerEstudiante = async(req, res) => {
     try {
-        let estudiante = await Estudiante.findOne({"usuario":req.params.usuario})   //req.params es para adquirir la id que le enviamos al url y que llame el objeto especifico
+        //let estudiante = await Estudiante.findOne({"usuario":req.params.usuario})
+        let estudiante = await Estudiante.findById(req.params.id)   //req.params es para adquirir la id que le enviamos al url y que llame el objeto especifico
         if (!estudiante) {
             res.status(404).json({mensaje:"no existe"})
         }
@@ -48,19 +49,22 @@ exports.obtenerEstudiante = async(req, res) => {
 
 exports.actualizarEstudiante = async(req, res) => {
     try {
-        const {usuarioProfesor, nombre, usuario, contrasena}= req.body  // lo que hace es que crea la constante y le asiga los valores del body en el orden a los datos de la constante
-        let estudiante = await Estudiante.findOne({"usuario":req.params.usuario});   
+        const {nombre, correo, edad, genero, correoProfesor, contrasena, cursos}= req.body  // lo que hace es que crea la constante y le asiga los valores del body en el orden a los datos de la constante
+        let estudiante = await Estudiante.findById(req.params.id);   
         if (!estudiante) {
             res.status(404).json({mensaje:"no existe"})   //verificar de nuevo para que no sea facil modificar
         }
 
-        estudiante.usuarioProfesor =usuarioProfesor;
         estudiante.nombre =nombre;
-        estudiante.usuario = usuario;
+        estudiante.correo = correo;
+        estudiante.edad =edad;
+        estudiante.genero =genero;
+        estudiante.correoProfesor =correoProfesor;
         estudiante.contrasena =contrasena;
+        estudiante.cursos =cursos;
        
 
-        let procesoActualizar = await Estudiante.findOneAndUpdate({"usuario":req.params.usuario}, estudiante, {new:true})
+        let procesoActualizar = await Estudiante.findByIdAndUpdate(req.params.id, estudiante, {new:true})
         res.json(procesoActualizar)
 
     } catch (error){
@@ -73,12 +77,12 @@ exports.actualizarEstudiante = async(req, res) => {
 
 exports.borrarEstudiante = async(req, res) => {
     try {
-        let estudiante = await Estudiante.find({"usuario":req.params.usuario})
+        let estudiante = await Estudiante.findById(req.params.id)
         if (!estudiante) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        await Estudiante.findByIdAndRemove({ _id: req.params.id })
+        await Estudiante.findByIdAndRemove(req.params.id)
         res.status(200).json({ mensaje: "Dato eliminado satisfactoriamente" })
     } catch (error) {
         console.log(error)

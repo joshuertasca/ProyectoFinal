@@ -1,19 +1,32 @@
 const mongoose = require("mongoose");
 const EstudianteShema = mongoose.Schema({
-    usuarioProfesor: {
-        type: String,
-        required: true
-    },
+    
     nombre: {
         type: String,
         required: true
     },
-    usuario: {
+    correo: {
+        type: String,
+        required: true
+    },
+    edad:{
+        type:Number,
+        required:true
+    },
+    genero: {
+        type: String,
+        required: true
+    },
+    correoProfesor: {
         type: String,
         required: true
     },
     contrasena: {
         type: String,
+        required: true
+    },
+    cursos: {
+        type: Object,
         required: true
     },
     fec_cre:{
@@ -24,4 +37,5 @@ const EstudianteShema = mongoose.Schema({
 })
 
 module.exports= mongoose.model('Estudiante',EstudianteShema);
+
 

@@ -1,0 +1,53 @@
+<app-barra-lateral></app-barra-lateral>
+<div class="posicioncomponente">
+
+  <div class=" container-fluid">
+    <div class=" row">
+      <div class="col-4">
+        <h1 class=" fs-2 fw-bold mt-2 ms-0 mb-4">Nombre y apellido </h1>
+        <div class="imagenperfil border border-5 rounded-circle p-4">
+          <img class=" h-100 w-100" src="https://cdn-icons-png.flaticon.com/512/3021/3021782.png" alt="">
+        </div>
+        <h1 class=" fs-3 fw-bold mt-2 ms-0 mb-4">Datos Personales</h1>
+
+      </div>
+      <div class=" col-8">
+        <h1 class=" text-center">Avance en los cursos</h1>
+        <ngx-charts-pie-chart
+          [results]="saleData"
+          [legend]="true"
+          [legendTitle]="'Product Sale Report'"
+          [view]="[1000,300]"
+          [labels]="true" >
+        </ngx-charts-pie-chart>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

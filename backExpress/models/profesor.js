@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 const ProfesorShema = mongoose.Schema({
     
-    correo: {
-        type: String,
-        required: true
-    },
-    
     nombre: {
         type: String,
         required: true
     },
-    cedula: {
+    correo: {
         type: String,
         required: true
+    },
+    edad:{
+        type: Number,
+        required:true
     },
     genero: {
         type: String,
@@ -24,6 +23,10 @@ const ProfesorShema = mongoose.Schema({
     },
     acepta_terminos: {
         type: Boolean,
+        required: true
+    },
+    estudiantes: {
+        type: Object,
         required: true
     },
     fec_cre:{

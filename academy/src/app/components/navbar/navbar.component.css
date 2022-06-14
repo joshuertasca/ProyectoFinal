@@ -1,0 +1,22 @@
+.navbar{
+  position: fixed;
+  width: 100%;
+  background-color: var(--color3);
+  height: 70px;
+}
+
+.iconoPerfil{
+height: 50px;
+width: 50px;
+background-color: var(--color4);
+}
+#btnGroupDrop1 {
+  background-color: var(--color3);
+}
+.nombreUsuario {
+  width: 300px;
+}
+
+.blanco {
+  color: #fff;
+}
