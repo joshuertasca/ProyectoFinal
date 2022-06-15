@@ -1,27 +1,53 @@
 <app-barra-lateral></app-barra-lateral>
 <div class="posicioncomponente">
 
-  <div class=" container-fluid">
+  <div class=" container-fluid" >
     <div class=" row">
       <div class="col-4">
-        <h1 class=" fs-2 fw-bold mt-2 ms-0 mb-4">Nombre y apellido </h1>
+        <h1 class=" fs-2 fw-bold mt-2 ms-0 mb-4">{{InformacionEstudiante[0]}} </h1>
         <div class="imagenperfil border border-5 rounded-circle p-4">
-          <img class=" h-100 w-100" src="https://cdn-icons-png.flaticon.com/512/3021/3021782.png" alt="">
+          <img *ngIf="generomujer" class=" h-100 w-100" src="https://cdn-icons-png.flaticon.com/512/3021/3021782.png" alt="">
+          <img *ngIf="!generomujer" class=" h-100 w-100" src="https://cdn-icons-png.flaticon.com/512/1060/1060894.png" alt="">
         </div>
-        <h1 class=" fs-3 fw-bold mt-2 ms-0 mb-4">Datos Personales</h1>
-
+        <h1 class=" fs-3 fw-bold mt-2 ms-0 mb-2">Datos Personales</h1>
+        <ul class="list-group me-5">
+          <li class="list-group-item">{{InformacionEstudiante[1]}}</li>
+          <li class="list-group-item">Edad: {{InformacionEstudiante[2]}} años</li>
+          <li class="list-group-item">Contraseña: {{InformacionEstudiante[3]}}</li>
+          <li class="list-group-item">Numero de Trofeos: </li>
+         </ul>
       </div>
-      <div class=" col-8">
-        <h1 class=" text-center">Avance en los cursos</h1>
-        <ngx-charts-pie-chart
-          [results]="saleData"
-          [legend]="true"
-          [legendTitle]="'Product Sale Report'"
-          [view]="[1000,300]"
-          [labels]="true" >
-        </ngx-charts-pie-chart>
-      </div>
+      <div class=" col-6 border border-3 rounded-3 bg-light pt-1">
+        <h1 class=" text-center fs-3 fw-bold">Avance y calificaciones de los cursos</h1>
+        <ngx-charts-bar-vertical
+            [view]="[500,230]"
+            [results]="calificaciones"
+            [xAxisLabel]="'Cursos'"
+            [legendTitle]="''"
+            [yAxisLabel]="'Porcentaje de avance'"
+            [legend]="false"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [gradient]="true">
+        </ngx-charts-bar-vertical>
 
+        <ngx-charts-polar-chart
+          [view]="[600,270]"
+          [legend]="false"
+          [showXAxisLabel]="false"
+          [showYAxisLabel]="true"
+          [xAxis]="true"
+          [yAxis]="true"
+          [yAxisLabel]="'Calificaciones'"
+          [results]="avance">
+        </ngx-charts-polar-chart>
+      </div>
+      <div class="col-2 ps-5 pt-4 mt-4 ">
+        <i class="borrarEstudiante fa-solid py-5 my-5  fa-person-circle-minus fa-4x color3"></i>
+        <i class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2"></i>
+      </div>
     </div>
   </div>
 

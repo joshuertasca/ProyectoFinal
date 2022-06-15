@@ -17,12 +17,12 @@ export class CrearEstudianteService {
   }
 
   getEstudiante (id:string): Observable<any>{     // vaya al contedido vuelvalo asincrono y conviertaalo en un tipo any
-    return this.http.get(this.url +"contacto/"+ id)
+    return this.http.get(this.url +"estudiante/"+ id)
   }
 
-  // deleteContacto (id:string) : Observable<any>  {
-  //   return this.http.delete(this.url+"delete/"+id)
-  // }
+  deleteEstudiante (id:string) : Observable<any>  {
+    return this.http.delete(this.url+"delete/"+id)
+  }
 
   postContacto (estudiante: Estudiante):Observable<any>{
     return this.http.post(`${this.url}crear-cuenta-estudiante`, estudiante)

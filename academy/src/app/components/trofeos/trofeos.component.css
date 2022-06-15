@@ -1,0 +1,60 @@
+.trofeos{
+  background: #9eb17b;
+
+}
+
+.card{
+
+  height: 250px;
+  width: 200px;
+  box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+  overflow: hidden;
+  border-radius: 200px;
+  background-color: rgba(255, 255, 255, 0.904);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  }
+
+
+.container  img{
+width: 100%;
+height: 100%;
+transition: all 500ms ease-out;
+
+}
+
+.container .capa {
+color: #f4f4f5;
+
+position: absolute ;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 1, 2, 0.6);
+transition: all 500ms ease-out;
+
+
+}
+
+
+.barra{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  background: #56ab2f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #ffffff
+
+}
+
+
+.capa{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}

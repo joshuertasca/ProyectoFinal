@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Estudiante } from 'src/app/models/estudiantes';
 import { CrearEstudianteService } from 'src/app/services/crear-estudiante.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -57,7 +58,13 @@ export class EstudiantesComponent implements OnInit {
     }
 
         this._CrearEstudianteService.postContacto(registroEstudiantes).subscribe(data => {
-
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Un Nuevo estudiante ha sido registrado',
+            showConfirmButton: false,
+            timer: 1500
+        })
 
         }, error => {
             console.log(error);
