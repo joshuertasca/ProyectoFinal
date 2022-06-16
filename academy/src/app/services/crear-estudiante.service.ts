@@ -21,7 +21,7 @@ export class CrearEstudianteService {
   }
 
   deleteEstudiante (id:string) : Observable<any>  {
-    return this.http.delete(this.url+"delete/"+id)
+    return this.http.delete(this.url+"delete-estudiante/"+id)
   }
 
   postContacto (estudiante: Estudiante):Observable<any>{

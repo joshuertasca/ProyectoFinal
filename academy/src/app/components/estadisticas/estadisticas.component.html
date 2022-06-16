@@ -1,8 +1,31 @@
 <app-barra-lateral></app-barra-lateral>
 
 <div class=" posicioncomponente">
-  <p>estadisticas works!</p>
 
+  <p class=" fs-3 fw-bold">EStadisticas Generales</p>
+
+<div class=" d-flex">
+<ngx-charts-advanced-pie-chart
+  [view]="[500, 300]"
+  [results]="single"
+  [gradient]="true"
+  class=" m-0 p-0 justify-content-center align-content-center align-items-center" >
+</ngx-charts-advanced-pie-chart>
+
+<ngx-charts-bar-vertical-2d
+  [view]="[500, 300]"
+  [results]="multi"
+  [gradient]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxisLabel]="'cursos'"
+  [yAxisLabel]="'Calificaciones'"
+  [legendTitle]="'Calificaciones /100'">
+</ngx-charts-bar-vertical-2d>
+</div>
 
 
 

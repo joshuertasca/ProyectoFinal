@@ -13,38 +13,24 @@ import Swal from 'sweetalert2';
 })
 export class EstudianteComponent implements OnInit {
 
-  calificaciones = [
-    { name: "Biologia", value: 78 },
-    { name: "matematicas", value: 50 },
-    { name: "fisica", value: 30 },
-    { name: "historia", value: 60 }
-  ]
+  calificaciones = []
 
-  avance = [
-    {
-      "name": "calificación",
-      "series": [
-        { "name": "Biologia",  "value": 70},
-        { "name": "Historia",  "value": 80},
-        { "name": "fisica", "value": 30},
-        { "name": "matematicas", "value": 100}
-      ]
-    }
+  contenido:any = []
 
-  ];
+  avance:any = []
 
   id: string | null;
   InformacionEstudiante: Estudiante[] = [];
   generomujer:boolean=false;
 
-  @HostListener('window:beforeunload', ['$event'])
-  onMessage(event:any) {
-      if (true) {
-          event.preventDefault();
-          event.returnValue = "";
-          return "";
-      }
-  }
+  // @HostListener('window:beforeunload', ['$event'])
+  // onMessage(event:any) {
+  //     if (true) {
+  //         event.preventDefault();
+  //         event.returnValue = "";
+  //         return "";
+  //     }
+  // }
 
   constructor(private _CrearEstudianteService: CrearEstudianteService, private router: Router, private idRouter: ActivatedRoute) {
 
@@ -53,8 +39,6 @@ export class EstudianteComponent implements OnInit {
 
   ngOnInit(): void {
     this.rellenarInformacion()
-
-
   }
 
   rellenarInformacion() {
@@ -66,6 +50,22 @@ export class EstudianteComponent implements OnInit {
         this.InformacionEstudiante[1] = data.correo;
         this.InformacionEstudiante[2] = data.edad;
         this.InformacionEstudiante[3] = data.contrasena;
+        this.InformacionEstudiante[4] = data._id;
+
+
+
+
+        this.calificaciones=data.cursos.calificaciones;
+        this.contenido=data.cursos.contenido;
+        console.log(this.contenido)
+        this.avance = [
+          {
+            "name": "calificación",
+            "series": this.contenido
+          }
+
+        ]
+
 
         if (data.genero=="mujer") {
           this.generomujer=true;
@@ -75,12 +75,40 @@ export class EstudianteComponent implements OnInit {
 
 
 
+
       })
 
     }
   }
 
-  eliminarEstudiante(){
+  eliminarEstudiante(id:any){    //se deberia usar string, pero se pone any para empezar mas facil
+      Swal.fire({
+        title: 'desea eliminar contacto=',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          this._CrearEstudianteService.deleteEstudiante(id).subscribe(data =>{
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          );
+          this.router.navigate(['estudiantes'])
+          }, error => {
+            console.log(error)
+        })
+
+
+        }
+      })
+
+
 
   }
 

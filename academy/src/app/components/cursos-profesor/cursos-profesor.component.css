@@ -1,4 +1,13 @@
 .contenedorcursos {
   height: 470px;
-
 }
+
+.addcurso {
+  cursor: pointer;
+}
+
+.agregarlinks {
+  height: 220px;
+}
+
+

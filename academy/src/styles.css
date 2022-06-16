@@ -39,8 +39,13 @@
   background-color:var(--transparente);
 }
 
+.cursorpointed {
+  cursor: pointer;
+}
+
 .posicioncomponente {
   padding-top: 100px;
   padding-left: 265px;
   padding-right: 45px;
 }
+
