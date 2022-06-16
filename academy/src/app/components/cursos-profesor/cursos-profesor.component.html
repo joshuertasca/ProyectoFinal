@@ -17,14 +17,13 @@
 
   <div class="contenedorcursos container-fluid border border-3 bg-light">
     <div class="row">
-      <div class="col-4">
+      <div class="col-4" *ngFor="let curso of cursos; let indice = index">
         <div class=" m-3 card text-center my-4 border rounded-pill" style="width: 16rem;">
           <div class="card-body bg-color3 border rounded-pill">
-            <h5 class="card-title fs-3 fw-bold">Biologia</h5>
-            <p class="card-text">xx proyecciones en este curso </p>
+            <h5 class="card-title fs-3 fw-bold">{{curso.nombre}}</h5>
             <div class="d-fle">
-              <a class="btn btn-primary me-4">Ver Curso</a>
-              <a class="btn btn-light "><i class="fa-solid fa-trash-can"></i></a>
+              <a class="btn btn-primary me-4" (click)="abrirCurso(indice)">Ver Curso</a>
+              <a class="btn btn-light "><i class="fa-solid fa-trash-can"(click)="eliminarCurso(indice)" ></i></a>
             </div>
           </div>
         </div>
@@ -49,7 +48,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input type="text" class="form-control" id="nombreNuevoCurso" placeholder="Nombre Curso"
+        <input #nombreCurso type="text" class="form-control" id="nombreNuevoCurso" placeholder="Nombre Curso"
           aria-label="Nombre Curso" aria-describedby="addon-wrapping">
       </div>
 
@@ -63,12 +62,7 @@
               <th scope="col">Nombre</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- <tr>
-              <th scope="row">1</th>
-              <td>Imagen</td>
-              <td>Ciclo del Agua</td>
-            </tr> -->
+          <tbody #tabla>
 
           </tbody>
         </table>
@@ -78,28 +72,28 @@
         <div class=" row">
           <div class=" col-8 offset-2">
             <div class="agregarlinks ">
-              <p class=" fs-4 fw-bold addImagen "> Agregar Imagen</p>
-              <p class=" fs-4 fw-bold addVideo d-none"> Agregar Video</p>
-              <p class=" fs-4 fw-bold addTexto d-none"> Agregar Texto</p>
-              <input type="text" class="form-control" id="nombreDiapositiva" placeholder="Nombre de la diapositiva"
+              <p #addimagen class=" fs-4 fw-bold addImagen "> Agregar Imagen</p>
+
+              <input #tituloDiapositiva type="text" class="form-control" id="nombreDiapositiva" placeholder="Nombre de la diapositiva"
               aria-label="Nombre de la diapositiva" aria-describedby="addon-wrapping">
-              <input type="text" class="form-control addImagen " id="contenidoDiapositiva" placeholder="Pegar Link de la Imagen"
+              <input #imputdiapositiva type="text" class="form-control addImagen " id="contenidoDiapositiva" placeholder="Pegar Link de la Imagen"
               aria-label="Pegar link de la imagen" aria-describedby="addon-wrapping">
 
-              <button type="button" class="btn btn-danger mt-3">Añadir Diapositiva</button>
+              <button type="button" class="btn btn-danger mt-3" (click)="agregardiapositiva(tituloDiapositiva.value,imputdiapositiva.value,nombreCurso.value)">Añadir Diapositiva</button>
             </div>
           </div>
         </div>
       </div>
 
 
+      <span #advertencia class=" text-danger fw-bold"></span>
 
-      <p class=" fs-4 fw-bold text-center">Agregar Diapositiva</p>
+      <p class=" fs-4 fw-bold text-center">Tipo de Diapositiva</p>
       <div class=" d-flex mb-3">
         <div class=" container">
           <div class=" row">
             <div class=" col-4 text-center">
-              <i class="fa-solid fa-image fa-3x cursorpointed" (click)="addImagen()"></i>
+              <i class="fa-solid fa-image fa-3x cursorpointed"  (click)="addImagen()"></i>
             </div>
             <div class=" col-4 text-center">
               <i class="fa-solid fa-video fa-3x cursorpointed" (click)="addVideo()"></i>
@@ -113,8 +107,10 @@
 
       </div>
       <div class="modal-footer m-0 p-0">
-        <button type="button" class="btn btn-primary h-100 w-100 p-2 m-0">Crear Curso</button>
+        <button #botoncrearcurso type="button" class="btn btn-primary h-100 w-100 p-2 m-0" (click)="crearCurso(nombreCurso.value)" data-bs-dismiss="modal" disabled >Crear Curso</button>
       </div>
     </div>
   </div>
 </div>
+
+
