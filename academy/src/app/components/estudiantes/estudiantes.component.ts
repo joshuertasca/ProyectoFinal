@@ -65,6 +65,7 @@ export class EstudiantesComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
         })
+window.location.reload();
 
         }, error => {
             console.log(error);

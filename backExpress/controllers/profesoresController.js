@@ -49,20 +49,21 @@ exports.obtenerProfesor = async(req, res) => {
 
 exports.actualizarProfesor = async(req, res) => {
     try {
-        const {correo, nombre, cedula, genero, contrasena, acepta_terminos}= req.body  // lo que hace es que crea la constante y le asiga los valores del body en el orden a los datos de la constante
+        const {nombre, correo, edad, genero, contrasena, cursos, examenes}= req.body  // lo que hace es que crea la constante y le asiga los valores del body en el orden a los datos de la constante
         let profesor = await Profesor.findById(req.params.id);   
         if (!profesor) {
             res.status(404).json({mensaje:"no existe"})   //verificar de nuevo para que no sea facil modificar
         }
 
-        profesor.correo =correo;
         profesor.nombre =nombre;
-        profesor.cedula = cedula;
+        profesor.correo =correo;
+        profesor.edad = edad;
         profesor.genero = genero;
         profesor.contrasena =contrasena;
-        profesor.acepta_terminos = acepta_terminos;
+        profesor.cursos = cursos;
+        profesor.examenes = examenes;
 
-        let procesoActualizar = await Profesor.findByIdAndUpdate({_id: req.params.id}, profesor, {new:true})
+        let procesoActualizar = await Profesor.findByIdAndUpdate(req.params.id, profesor, {new:true})
         res.json(procesoActualizar)
 
     } catch (error){

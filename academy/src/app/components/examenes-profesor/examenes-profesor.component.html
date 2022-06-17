@@ -1,9 +1,35 @@
 <app-barra-lateral></app-barra-lateral>
 <div class=" posicioncomponente">
-  <p>examenes-profesor works!</p>
+
+  <div class=" container-fluid">
+    <div class=" row">
+      <div class="col-8">
+        <p class=" fs-3 fw-bold"> Examenes </p>
+      </div>
+      <div class="addcurso col-4 cursorpointed" [routerLink]="['/crearExamen']">
+        <p class=" fs-4 "> Agregar Examen <i
+            class="fa-solid fa-plus fa-xl"></i> </p>
+      </div>
+    </div>
+  </div>
 
 
-
+  <div class="contenedorcursos container-fluid border border-3 bg-light">
+    <div class="row">
+      <!-- <div class="col-4" *ngFor="let curso of cursos; let indice = index"> -->
+      <div class="col-4" >
+        <div class=" m-3 card text-center my-4 border rounded-pill" style="width: 16rem;">
+          <div class="card-body bg-color2 border rounded-start rounded-pill">
+            <h5 class="card-title fs-3 fw-bold text-white">Exm biologia </h5>
+            <div class="d-fle">
+              <a class="btn btn-primary me-4" >Ver Examen</a>
+              <a class="btn btn-light "><i class="fa-solid fa-trash-can" ></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

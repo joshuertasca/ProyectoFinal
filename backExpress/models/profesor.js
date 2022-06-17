@@ -21,12 +21,12 @@ const ProfesorShema = mongoose.Schema({
         type: String,
         required: true
     },
-    acepta_terminos: {
-        type: Boolean,
+    cursos: {
+        type: Array,
         required: true
     },
-    estudiantes: {
-        type: Object,
+    examenes: {
+        type: Array,
         required: true
     },
     fec_cre:{

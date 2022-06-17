@@ -1,5 +1,5 @@
 <app-barra-lateral></app-barra-lateral>
-<div class="trofeos posicioncomponente">
+<div class="trofeos posicioncomponente pb-5">
 
   <header class="barra">
       <h3>Trofeos</h3>
@@ -7,139 +7,13 @@
 
 
   <div class="container mt-5">
-      <div class="row row-cols-1 row-cols-md-3 g-4 figura">
+      <div class="row row-cols-1 row-cols-md-3 g-4 figura" >
 
-          <div class="col">
+          <div class="col" *ngFor="let nivel of niveles; let indice = index">
               <div class="card">
-                  <img src="assets\img\imagenestrofeos\1.png" class="card-img-top" alt="...">
+                  <img src="assets/img/{{indice+1}}.png" class="card-img-top" alt="...">
                   <div class="capa text-center ">
-                      <h5 class="card-title ">Nivel 1</h5>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\2.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 2</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\3.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 3</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\4.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 4</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\5.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 5</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\6.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 6</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\7.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 7</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\8.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 8</h5>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\9.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 9</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\10.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title  ">Nivel 10</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\11.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 11</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\12.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 12</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\13.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 13</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\14.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 14</h5>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="card">
-                  <img src="assets\img\imagenestrofeos\15.png" class="card-img-top" alt="...">
-                  <div class="capa text-center">
-                      <h5 class="card-title ">Nivel 15</h5>
+                      <h5 class="card-title ">{{nivel}}</h5>
                   </div>
               </div>
           </div>

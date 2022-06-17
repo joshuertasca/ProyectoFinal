@@ -1,0 +1,91 @@
+<app-barra-lateral></app-barra-lateral>
+<div class=" posicioncomponente">
+
+  <p class=" container text-center fw-bold fs-2 color2">Nuevo Examen</p>
+  <p class=" container fs-6 pe-0 me-0">Para crear el examen solo debe escribir un titulo y posteriormente en el signo de
+    + podra agregar las preguntas de opcion multiple que desee.
+    cuando complete todas las preguntas necesarias en el boton crear podrá finalizar con la publicación del examen </p>
+
+  <p class=" container fw-bold fs-2 color2">Preguntas</p>
+
+  <div class=" container-fluid">
+    <div class=" row">
+
+      <div class=" col-3" *ngFor="let punto of preguntas; let indice = index">
+        <div class="card border-3 rounded-3 m-3 w-100 ">
+          <div class="card-body">
+            <div class=" d-flex">
+              <h6 class="card-subtitle mb-2 text-muted">Pregunta {{indice+1}} </h6>
+              <div class="espacio"></div>
+              <i class="fa-solid fa-trash-can cursorpointed "></i>
+            </div>
+            <p class="card-text">{{punto.pregunta}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-3">
+        <div class=" pt-4 mt-1 ms-5">
+          <i data-bs-toggle="modal" data-bs-target="#exampleModal" class="fa-solid fa-plus color3 fa-5x text-center border border-dark border-5 rounded-circle cursorpointed"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Pregunta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-light">
+
+        <div  class="input-group pregunta me-3 my-3">
+          <textarea #pregunta class="form-control" aria-label="With textarea" placeholder="Escriba la preguta"></textarea>
+        </div>
+
+
+        <div class=" container-fluid">
+          <div class="row">
+            <div class=" col-9">
+              <input #opciona type="text" class="form-control addImagen my-3 w-100" id="opciona" placeholder="Escriba la opcion de respuesta A"
+              aria-label="opciona" aria-describedby="addon-wrapping">
+
+              <input #opcionb type="text" class="form-control addImagen my-3 w-100" id="opciona" placeholder="Escriba la opcion de respuesta B"
+              aria-label="opcionb" aria-describedby="addon-wrapping">
+
+              <input #opcionc type="text" class="form-control addImagen my-3 w-100" id="opciona" placeholder="Escriba la opcion de respuesta C"
+              aria-label="opcionc" aria-describedby="addon-wrapping">
+
+              <input #opciond type="text" class="form-control addImagen my-3 w-100" id="opciona" placeholder="Escriba la opcion de respuesta D"
+              aria-label="opciond" aria-describedby="addon-wrapping">
+
+            </div>
+
+            <div class=" col-3 justify-content-center text-center mt-5">
+              <p class=" fw-bold text-center">Respuesta</p>
+              <p>escriba a,b,c o d</p>
+              <input #respuesta type="text" minlength="1" maxlength="1" class="imputrespuesta w-25 text-center">
+            </div>
+          </div>
+        </div>
+
+      <span #advertencia class=" text-danger text-center w-100" > </span>
+
+      </div>
+      <div class="modal-footer p-0">
+        <button type="button" class="btn btn-secondary w-50 h-100 py-2 m-0" data-bs-dismiss="modal">listo</button>
+        <button type="button" class="btn btn-primary w-50 h-100 py-2 m-0"   (click)="guardarpregunta(pregunta.value, opciona.value, opcionb.value, opcionc.value, opciond.value, respuesta.value)">Guardar Pregunta</button>
+      </div>
+    </div>
+  </div>
+</div>

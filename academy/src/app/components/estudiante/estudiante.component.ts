@@ -52,7 +52,11 @@ export class EstudianteComponent implements OnInit {
         this.InformacionEstudiante[3] = data.contrasena;
         this.InformacionEstudiante[4] = data._id;
 
-
+        if (data.genero=="mujer") {
+          this.generomujer=true;
+        }else{
+          this.generomujer=false;
+        }
 
 
         this.calificaciones=data.cursos.calificaciones;
@@ -67,11 +71,7 @@ export class EstudianteComponent implements OnInit {
         ]
 
 
-        if (data.genero=="mujer") {
-          this.generomujer=true;
-        }else{
-          this.generomujer=false;
-        }
+
 
 
 

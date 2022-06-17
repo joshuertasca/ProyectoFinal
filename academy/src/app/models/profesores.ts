@@ -1,19 +1,21 @@
 export class Profesor {
   _id?: string;
-  correo: string;
   nombre: string;
+  correo: string;
+  edad: number;
   genero: string;
   contrasena: string;
-  acepta_terminos: boolean;
-  estudiantes: object;
+  cursos: any [];
+  examenes: any [];
 
-  constructor(correo:string, nombre:string, genero:string, contrasena:string, acepta_terminos:boolean, estudiantes:object) {
-    this.correo= correo;
+  constructor(nombre:string, correo:string, edad:number, genero:string, contrasena:string, cursos:any[], examenes:any[]) {
     this.nombre=nombre;
+    this.correo= correo;
+    this.edad=edad;
     this.genero=genero;
     this.contrasena=contrasena;
-    this.acepta_terminos=acepta_terminos;
-    this.estudiantes= Object;
+    this.cursos=cursos;
+    this.examenes= examenes;
   }
 }
 

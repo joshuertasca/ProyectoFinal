@@ -19,6 +19,7 @@ import { ExamenesProfesorComponent } from './components/examenes-profesor/examen
 import { ExamenesEstudianteComponent } from './components/examenes-estudiante/examenes-estudiante.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { TrofeosComponent } from './components/trofeos/trofeos.component';
+import { CrearExamenComponent } from './components/crear-examen/crear-examen.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TrofeosComponent } from './components/trofeos/trofeos.component';
     ExamenesProfesorComponent,
     ExamenesEstudianteComponent,
     EstadisticasComponent,
-    TrofeosComponent
+    TrofeosComponent,
+    CrearExamenComponent
   ],
   imports: [
     BrowserModule,
