@@ -5,3 +5,42 @@
   --color4: #FFFFFF
   --color5: #000000
 }
+
+.color1 {
+  color:var(--color1);
+}
+.color2 {
+  color:var(--color2);
+}
+.color3 {
+  color:var(--color3);
+}
+.color4 {
+  color:var(--color4);
+}
+.color5 {
+  color:var(--color5);
+}
+
+.bg-color1{
+  background-color:var(--color1);
+}
+.bg-color2{
+  background-color:var(--color2);
+}
+.bg-color3{
+  background-color:var(--color3);
+}
+
+.posicioncomponente {
+  padding-top: 100px;
+  padding-left: 265px;
+  padding-right: 45px;
+}
+
+
+
+.backgroundColor{
+  background-color: var(--color3);
+}
+

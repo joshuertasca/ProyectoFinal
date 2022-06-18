@@ -1,6 +1,4 @@
-.backgroundColor{
-  background-color: var(--color3);
-}
+
 .loginSpace{
   display: flex;
   justify-content: center;

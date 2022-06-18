@@ -1,0 +1,21 @@
+.colorTitles{
+  color: var(--color2);
+}
+.buttonCurso{
+  background-color: var(--color2);
+  display: flex;
+  border-color: none;
+}
+.buttonCurso:hover{
+  background-color: var(--color3)
+
+}
+.boxVideo{
+  background-color: var(--color3);
+  border-radius: 20px;
+  padding: 0% 3% 3% 3%;
+  margin: 5%;
+}
+.cambiandoColor{
+  color: blueviolet;
+}
