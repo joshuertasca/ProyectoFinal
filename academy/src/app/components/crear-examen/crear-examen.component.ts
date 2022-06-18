@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild, Renderer2, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Profesor } from 'src/app/models/profesores';
+import { ProfesoresService } from 'src/app/services/profesores.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,34 +20,22 @@ export class CrearExamenComponent implements OnInit {
   @ViewChild('opciond') input5:any;
   @ViewChild('respuesta') input6:any;
 
-  preguntas: any = [{
-    pregunta: "¿ de que color es el agua?",
-    opciona: "amarilla",
-    opcionb: "transparente",
-    opcionc: "azul",
-    opciond: "no tiene color",
-    respuesta: "d"
-  },
-  {
-    pregunta: "¿ scvjks skcokrdzfkdmckjdbfskjnxjasnzdvc?",
-    opciona: "amasdfcrilla",
-    opcionb: "sdrfwaes",
-    opcionc: "edfsxc",
-    opciond: "sfdcads",
-    respuesta: "a"
-  }
-  ]
+  preguntas: any = []
+
+  id: string = "62abde3e1f1bb0b48153307a";
+  registroProfesor: any ={};
 
 
 
-  constructor(private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) { }
+  constructor(private _ProfesoresService: ProfesoresService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.obtenerprofesor ()
   }
 
   guardarpregunta(pregunta: any, opciona: any, opcionb: any, opcionc: any, opciond: any, respuesta: any) {
     const advertencia = this.advHTML?.nativeElement;
-
+    console.log(pregunta)
     if (pregunta == "" || opciona == "" || opcionb == "" || opcionc == "" || opciond == "") {
       this.renderer2.setProperty(advertencia, 'innerHTML', 'debe completar todos los campos para guardar la pregunta')
     } else {
@@ -68,12 +58,12 @@ export class CrearExamenComponent implements OnInit {
         );
 
         //limpiar campos
-        this.input1.nativeElement.value = ' ';
-        this.input2.nativeElement.value = ' ';
-        this.input3.nativeElement.value = ' ';
-        this.input4.nativeElement.value = ' ';
-        this.input5.nativeElement.value = ' ';
-        this.input6.nativeElement.value = ' ';
+        this.input1.nativeElement.value = '';
+        this.input2.nativeElement.value = '';
+        this.input3.nativeElement.value = '';
+        this.input4.nativeElement.value = '';
+        this.input5.nativeElement.value = '';
+        this.input6.nativeElement.value = '';
         this.renderer2.setProperty(advertencia, 'innerHTML', '')
       } else {
 
@@ -85,6 +75,62 @@ export class CrearExamenComponent implements OnInit {
   }
 
 
+  guardarcurso(nombre:string){
+
+
+      this._ProfesoresService.getProfesor(this.id).subscribe(data => {
+        let exam = data.examenes
+        let examx = {
+          nombre: nombre,
+          preguntas: this.preguntas
+        }
+        exam.push(examx)
+        console.log(data)
+        this.registroProfesor ={
+          nombre: data.nombre,
+          correo: data.correo,
+          edad: data.edad,
+          genero: data.genero,
+          contrasena: data.contrasena,
+          cursos: data.curso,
+          examenes: exam
+
+        }
+        console.log(this.registroProfesor)
+      })
+
+  setTimeout(() => {
+
+
+    console.log("hola1")
+    console.log(this.registroProfesor)
+    console.log("hola")
+        this._ProfesoresService.putContacto(this.id,this.registroProfesor).subscribe(data=>{
+          Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'el examen ha creado con exito',
+              showConfirmButton: false,
+              timer: 1500
+          })
+
+          this.router.navigate(['examenesProfesor'])
+
+      }, error =>{
+          console.log(error);
+      })
+
+
+  }, 500);
+
+  }
+
+
+  obtenerprofesor (){
+    this._ProfesoresService.getProfesor(this.id).subscribe(data => {
+      console.log(data)
+    })
+  }
 
 
 

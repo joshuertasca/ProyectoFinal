@@ -5,6 +5,7 @@ import { CursosProfesorComponent } from './components/cursos-profesor/cursos-pro
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
 import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
+import { ExamenesEstudianteComponent } from './components/examenes-estudiante/examenes-estudiante.component';
 import { ExamenesProfesorComponent } from './components/examenes-profesor/examenes-profesor.component';
 import { LoginComponent } from './components/login/login.component';
 import { TrofeosComponent } from './components/trofeos/trofeos.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'estadisticas', component: EstadisticasComponent},
   { path: 'trofeos', component: TrofeosComponent},
   { path: 'crearExamen', component: CrearExamenComponent},
+  { path: 'examen/:indice', component: ExamenesEstudianteComponent},
 
 
 ];

@@ -28,13 +28,9 @@ export class CrearEstudianteService {
     return this.http.post(`${this.url}crear-cuenta-estudiante`, estudiante)
   }
 
-  // getContacto(id:string): Observable<any> {
-  //   return this.http.get(this.url +"contacto/"+ id)
-  // }
-
-  // putContacto(id:string , contacto: Contacto): Observable <any> {
-  //   return this.http.put(this.url+"actualizar/"+id, contacto)
-  // }
+  putEstudiante(id:string , estudiante: Estudiante): Observable <any> {
+    return this.http.put(this.url+"actualizar-estudiante/"+id, estudiante)
+  }
 
 }
 

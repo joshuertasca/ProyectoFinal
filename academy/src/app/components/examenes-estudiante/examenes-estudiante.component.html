@@ -1,2 +1,24 @@
 <app-barra-lateral></app-barra-lateral>
-<p>examenes-estudiante works!</p>
+<div class=" posicioncomponente">
+  <div class=" container-fluid border border-3 contenedor">
+    <p class="m-2 text-center fs-3 fw-bold color2">Examen {{nombreExamen}}</p>
+    <div class=" container">
+      <p class="mx-5 fs-4 my-4"> {{contador+1}}. {{preguntas[contador].pregunta}}</p>
+
+      <div class=" mx-5">
+        <p class="mx-5 fs-5 my-4 cursorpointed" (click)="a()"> a. {{preguntas[contador].opciona}}</p>
+        <p class="mx-5 fs-5 my-4 cursorpointed" (click)="b()"> b. {{preguntas[contador].opcionb}}</p>
+        <p class="mx-5 fs-5 my-4 cursorpointed" (click)="c()"> c. {{preguntas[contador].opcionc}}</p>
+        <p class="mx-5 fs-5 my-4 cursorpointed" (click)="d()"> d. {{preguntas[contador].opciond}}</p>
+        <span #respuesta class="my-4 ms-2 ps-5 fs-3 text-center text-primary">No ha seleccionado ninguna respuesta</span>
+      </div>
+
+      <button #btnconfirmar type="button" class="btn btn-danger mt-3" disabled (click)="siguiente()">Confirmar Respuesta </button>
+
+
+
+    </div>
+
+  </div>
+
+</div>

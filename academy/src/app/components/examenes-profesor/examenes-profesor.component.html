@@ -16,14 +16,13 @@
 
   <div class="contenedorcursos container-fluid border border-3 bg-light">
     <div class="row">
-      <!-- <div class="col-4" *ngFor="let curso of cursos; let indice = index"> -->
-      <div class="col-4" >
+      <div class="col-4" *ngFor="let examen of examenes; let indice = index">
         <div class=" m-3 card text-center my-4 border rounded-pill" style="width: 16rem;">
           <div class="card-body bg-color2 border rounded-start rounded-pill">
-            <h5 class="card-title fs-3 fw-bold text-white">Exm biologia </h5>
+            <h5 class="card-title fs-3 fw-bold text-white">{{examen.nombre}} </h5>
             <div class="d-fle">
-              <a class="btn btn-primary me-4" >Ver Examen</a>
-              <a class="btn btn-light "><i class="fa-solid fa-trash-can" ></i></a>
+              <a class="btn btn-primary me-4" [routerLink]="['/examen/'+indice]" >Ver Examen</a>
+              <a class="btn btn-light "><i class="fa-solid fa-trash-can" (click)="borrarexamen(indice)"></i></a>
             </div>
           </div>
         </div>
