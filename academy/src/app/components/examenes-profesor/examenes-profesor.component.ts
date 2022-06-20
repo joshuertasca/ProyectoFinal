@@ -15,8 +15,8 @@ export class ExamenesProfesorComponent implements OnInit {
   examenes: any = [];
   id: string = "62abde3e1f1bb0b48153307a";
   registroProfesor: any ={};
-
-
+  TituloDelComponente:any;
+  tipo:any;
 
   constructor(private _ProfesoresService: ProfesoresService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) {
 
@@ -24,7 +24,16 @@ export class ExamenesProfesorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.obtenerprofesor()
+
+    if(localStorage.getItem('tipo')=="estudiante"){
+      this.tipo="estudiante"
+     } else {
+       this.tipo="profesor"
+     }
+
+    this.obtenerprofesor();
+    this.TituloDelComponente="Examenes"
+
   }
 
   obtenerprofesor() {

@@ -18,6 +18,7 @@ export class EstudiantesComponent implements OnInit {
   regexNumero = /^[0-9]+$/;
   listaEstudiantes: Estudiante []= [];
   id: string | null;
+  TituloDelComponente:any;
 
   constructor(private fb: FormBuilder, private _CrearEstudianteService: CrearEstudianteService, private router: Router, private idRouter: ActivatedRoute) {
 
@@ -34,7 +35,12 @@ export class EstudiantesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem('tipo')!='profesor') {
+      this.router.navigate([''])
+    }
     this.obtenerEstudiantes()
+    this.TituloDelComponente="Lista de Estudiantes"
   }
 
   obtenerEstudiantes() {
@@ -54,8 +60,29 @@ export class EstudiantesComponent implements OnInit {
       genero: this.registroEstudiantes.get('genero')?.value,
       contrasena: this.registroEstudiantes.get('contrasena')?.value,
       correoProfesor: "fulano@gmail.com",
-      cursos:{}
+      cursos:{
+        "contenido": [{}],
+        "calificaciones": [{}],
+        "trofeos": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ]
     }
+
+  }
 
         this._CrearEstudianteService.postContacto(registroEstudiantes).subscribe(data => {
           Swal.fire({

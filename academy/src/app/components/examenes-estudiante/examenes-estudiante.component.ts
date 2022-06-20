@@ -24,8 +24,10 @@ export class ExamenesEstudianteComponent implements OnInit {
   id: string = "62abde3e1f1bb0b48153307a";
   nombreExamen: string="";
   indiceExamen: any;
-  idEstudiante: string = "62a93c47284ad0630e38195e"
+  idEstudiante: any = ""
   registroEstudiante: any= {};
+  TituloDelComponente:any;
+  tipo:any;
 
   constructor(private _ProfesoresService: ProfesoresService, private _CrearEstudiantesServive:CrearEstudianteService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) {
     this.indiceExamen = this.idRouter.snapshot.paramMap.get('indice')
@@ -36,6 +38,13 @@ export class ExamenesEstudianteComponent implements OnInit {
     this.llamarinformación ()
 
     setTimeout(() => {
+      if(localStorage.getItem('tipo')=="estudiante"){
+        this.tipo="estudiante"
+        this.idEstudiante=localStorage.getItem('id')
+        console.log(this.idEstudiante)
+       } else {
+         this.tipo="profesor"
+       }
       this.calcularvalorpregunta ()
     }, 1000);
   }

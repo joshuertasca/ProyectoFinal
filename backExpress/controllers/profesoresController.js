@@ -45,6 +45,21 @@ exports.obtenerProfesor = async(req, res) => {
     }
 
 }
+exports.obtenerProfesorcorreo = async(req, res) => {
+    try {
+        let profesor = await Profesor.find({correo: req.params.correo});   //req.params es para adquirir la id que le enviamos al url y que llame el objeto especifico
+        
+        if (!profesor) {
+            res.status(404).json({mensaje:"no existe"})
+        }
+        res.json(profesor);
+
+    } catch (error){
+        console.log(error)
+        res.status(500).send("hay error")
+    }
+
+}
 
 
 exports.actualizarProfesor = async(req, res) => {

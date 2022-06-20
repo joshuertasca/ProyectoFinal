@@ -2,9 +2,9 @@
 
 <div class="col-7 border-end border-5 barra">
   <div class="ms-5 mt-5 ">
-    <div class="mb-2"> <a [routerLink]="['/estudiantes']" class=" pointer text-decoration-none text-black fs-6"><i
-          class="fa-solid fa-graduation-cap mb-3 me-3"></i>
-        Estudiantes</a></div>
+    <div  *ngIf="tipo!='estudiante'" class="mb-2"> <a #estudiantes [routerLink]="['/estudiantes']"
+        class=" pointer text-decoration-none text-black fs-6"><i class="fa-solid fa-graduation-cap mb-3 me-3"></i>
+        {{ tituloestudiantes}}</a></div>
 
     <div class="mb-2"><a [routerLink]="['/cursosProfesor']" class=" pointer text-decoration-none text-black"><i
           class="fa-solid fa-chalkboard-user mb-3 me-3"></i> Cursos</a></div>
@@ -13,10 +13,15 @@
           class="fa-solid fa-clipboard-question mb-3 me-3"></i>
         Examenes</a></div>
 
-    <div class="mb-2"><a [routerLink]="['/estadisticas']" class=" pointer text-decoration-none text-black"><i
+    <div *ngIf="tipo!='estudiante'" class="mb-2"><a [routerLink]="['/estadisticas']" class=" pointer text-decoration-none text-black"><i
           class="fa-solid fa-chart-line mb-3 me-3"></i>
         Estadisticas</a></div>
-  </div>
 
+
+    <div *ngIf="tipo=='estudiante'" class="mb-2"><a [routerLink]="['/trofeos']" class=" pointer text-decoration-none text-black"><i
+          class="fa-solid fa-chart-line mb-3 me-3"></i>
+        Trofeos</a></div>
+
+  </div>
 
 </div>

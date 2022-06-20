@@ -19,6 +19,7 @@ export class CrearExamenComponent implements OnInit {
   @ViewChild('opcionc') input4:any;
   @ViewChild('opciond') input5:any;
   @ViewChild('respuesta') input6:any;
+  TituloDelComponente:any;
 
   preguntas: any = []
 
@@ -30,7 +31,11 @@ export class CrearExamenComponent implements OnInit {
   constructor(private _ProfesoresService: ProfesoresService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('tipo')!='profesor') {
+      this.router.navigate([''])
+    }
     this.obtenerprofesor ()
+    this.TituloDelComponente="Crear Examen";
   }
 
   guardarpregunta(pregunta: any, opciona: any, opcionb: any, opcionc: any, opciond: any, respuesta: any) {

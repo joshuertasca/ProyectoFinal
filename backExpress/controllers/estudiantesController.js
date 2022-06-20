@@ -46,6 +46,21 @@ exports.obtenerEstudiante = async(req, res) => {
     }
 
 }
+exports.obtenerEstudianteCorreo = async(req, res) => {
+    try {
+        //let estudiante = await Estudiante.findOne({"usuario":req.params.usuario})
+        let estudiante = await Estudiante.find({correo: req.params.correo})   //req.params es para adquirir la id que le enviamos al url y que llame el objeto especifico
+        if (!estudiante) {
+            res.status(404).json({mensaje:"no existe"})
+        }
+        res.json(estudiante);
+
+    } catch (error){
+        console.log(error)
+        res.status(500).send("hay error")
+    }
+
+}
 
 exports.actualizarEstudiante = async(req, res) => {
     try {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-estadisticas',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstadisticasComponent implements OnInit {
 
+  TituloDelComponente:any;
   single = [
     {
       "name": "Hombres",
@@ -75,9 +77,15 @@ export class EstadisticasComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private router: Router, private idRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.TituloDelComponente="EStadisticas de los Estudiantes"
+
+    if (localStorage.getItem('tipo')!='profesor') {
+      this.router.navigate([''])
+    }
+
   }
 
 }

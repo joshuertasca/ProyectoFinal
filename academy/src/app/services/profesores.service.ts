@@ -19,6 +19,9 @@ export class ProfesoresService {
   getProfesor (id:string): Observable<any>{     // vaya al contedido vuelvalo asincrono y conviertaalo en un tipo any
     return this.http.get(this.url +"profesor/"+ id)
   }
+  getProfesorcorreo (correo:string): Observable<any>{     // vaya al contedido vuelvalo asincrono y conviertaalo en un tipo any
+    return this.http.get(this.url +"profesorcorreo/"+ correo)
+  }
 
   postProfesor (profesor: Profesor):Observable<any>{
      return this.http.post(`${this.url}crear-cuenta-profesor`, profesor)

@@ -14,7 +14,7 @@
           <li class="list-group-item">{{InformacionEstudiante[1]}}</li>
           <li class="list-group-item">Edad: {{InformacionEstudiante[2]}} años</li>
           <li class="list-group-item">Contraseña: {{InformacionEstudiante[3]}}</li>
-          <li class="list-group-item">Numero de Trofeos: </li>
+          <li class="list-group-item">Numero de Trofeos: {{NumeroTrofeos}}</li>
          </ul>
       </div>
       <div class=" col-6 border border-3 rounded-3 bg-light pt-1">
@@ -45,8 +45,8 @@
         </ngx-charts-polar-chart>
       </div>
       <div class="col-2 ps-5 pt-4 mt-4 ">
-        <i (click)="eliminarEstudiante(InformacionEstudiante[4])" class="borrarEstudiante fa-solid py-5 my-5  fa-person-circle-minus fa-4x color3"></i>
-        <i class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2"></i>
+        <i *ngIf="tipo!='estudiante'" (click)="eliminarEstudiante(InformacionEstudiante[4])" class="borrarEstudiante fa-solid py-5 my-5  fa-person-circle-minus fa-4x color3"></i>
+        <i *ngIf="tipo!='estudiante'" class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2"></i>
       </div>
     </div>
   </div>

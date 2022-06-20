@@ -6,7 +6,7 @@
       <div class="col-8">
         <p class=" fs-3 fw-bold"> Cursos Actuales </p>
       </div>
-      <div class="addcurso col-4">
+      <div class="addcurso col-4" *ngIf="tipo!='estudiante'">
         <p class=" fs-4 " data-bs-toggle="modal" data-bs-target="#exampleModal"> Agregar curso <i
             class="fa-solid fa-plus fa-xl"></i> </p>
       </div>
@@ -22,8 +22,8 @@
           <div class="card-body bg-color3 border rounded-pill">
             <h5 class="card-title fs-3 fw-bold">{{curso.nombre}}</h5>
             <div class="d-fle">
-              <a class="btn btn-primary me-4" (click)="abrirCurso(indice)">Ver Curso</a>
-              <a class="btn btn-light "><i class="fa-solid fa-trash-can"(click)="eliminarCurso(indice)" ></i></a>
+              <a class="btn btn-primary text-center" [routerLink]="['/cursosEstudiante/'+indice]">Ver Curso</a>
+              <a *ngIf="tipo!='estudiante'" class="btn btn-light "><i class="fa-solid fa-trash-can"(click)="eliminarCurso(indice)" ></i></a>
             </div>
           </div>
         </div>

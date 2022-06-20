@@ -18,22 +18,24 @@ export class CursosProfesorComponent implements OnInit {
   @ViewChild('tabla') tablaHTML?: ElementRef
   @ViewChild('botoncrearcurso') crearHTML?: ElementRef
   @ViewChild('advertencia') advHTML?: ElementRef
-  @ViewChild('tituloDiapositiva') input1:any;
-  @ViewChild('imputdiapositiva') input2:any;
-  @ViewChild('nombreCurso') nombre:any;
+  @ViewChild('tituloDiapositiva') input1: any;
+  @ViewChild('imputdiapositiva') input2: any;
+  @ViewChild('nombreCurso') nombre: any;
 
 
 
   cursos: any = []
-  tipo: any = "imagen";
+  tipo1: any = "imagen";
   contenidoCurso: any = [];
   tabla: any = "";
   contador: number = 1;
   cursocreado: any = {};
-  name:any = {};
+  name: any = {};
   id: string = "62abde3e1f1bb0b48153307a";
-  profesor:any = {}
-  registroProfesor: any ={}
+  profesor: any = {}
+  registroProfesor: any = {}
+  TituloDelComponente:any;
+  tipo:any;
 
   constructor(private _ProfesoresService: ProfesoresService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) {
 
@@ -41,7 +43,14 @@ export class CursosProfesorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.obtenerprofesor ()
+
+    if(localStorage.getItem('tipo')=="estudiante"){
+      this.tipo="estudiante"
+     } else {
+       this.tipo="profesor"
+     }
+    this.obtenerprofesor()
+    this.TituloDelComponente="Cursos"
   }
 
 
@@ -50,7 +59,7 @@ export class CursosProfesorComponent implements OnInit {
     const imput = this.imputHTML?.nativeElement;
     this.renderer2.setProperty(imagen, 'innerHTML', 'Agregar Imagen');
     this.renderer2.setAttribute(imput, 'placeholder', 'Pegar Link de la Imagen')
-    this.tipo = "imagen";
+    this.tipo1 = "imagen";
 
 
   }
@@ -59,7 +68,7 @@ export class CursosProfesorComponent implements OnInit {
     const imput = this.imputHTML?.nativeElement;
     this.renderer2.setProperty(imagen, 'innerHTML', 'Agregar Video')
     this.renderer2.setAttribute(imput, 'placeholder', 'Pegar Link del video')
-    this.tipo = "video";
+    this.tipo1 = "video";
 
 
   }
@@ -70,7 +79,7 @@ export class CursosProfesorComponent implements OnInit {
     this.renderer2.setProperty(imagen, 'innerHTML', 'Agregar Texto')
     this.renderer2.setAttribute(imput, 'placeholder', 'Escribir Texto')
 
-    this.tipo = "texto";
+    this.tipo1 = "texto";
 
   }
 
@@ -85,15 +94,15 @@ export class CursosProfesorComponent implements OnInit {
       this.renderer2.setProperty(advertencia, 'innerHTML', '')
 
       if (titulo == ' ' || conte == ' ') {
-        this.renderer2.setProperty(advertencia, 'innerHTML', 'No puede agregar un ' + this.tipo + ' sin completar ambos campos')
+        this.renderer2.setProperty(advertencia, 'innerHTML', 'No puede agregar un ' + this.tipo1 + ' sin completar ambos campos')
       } else {
         let objeto: any = {
-          "tipo": this.tipo,
+          "tipo": this.tipo1,
           "nombre": titulo,
           "informacion": conte
         }
         this.contenidoCurso.push(objeto)
-        this.tabla = this.tabla + ' <tr> <th scope="row">' + this.contador + '</th>  <td>' + this.tipo + '</td>  <td>' + titulo + '</td> </tr> '
+        this.tabla = this.tabla + ' <tr> <th scope="row">' + this.contador + '</th>  <td>' + this.tipo1 + '</td>  <td>' + titulo + '</td> </tr> '
         this.contador++
 
         const tabla = this.tablaHTML?.nativeElement;
@@ -119,7 +128,7 @@ export class CursosProfesorComponent implements OnInit {
 
     this.cursos.push(this.cursocreado)
     console.log(this.cursos)
-    this.tipo = "imagen";
+    this.tipo1 = "imagen";
     this.contenidoCurso = [];
     this.tabla = "";
     this.contador = 1;
@@ -139,9 +148,7 @@ export class CursosProfesorComponent implements OnInit {
 
   }
 
-  abrirCurso(posicion: number) {
-    console.log(posicion) // es el numero de la posicion del curso
-  }
+
 
   eliminarCurso(posicion: number) {
     this.cursos.splice(posicion, 1);
@@ -150,7 +157,7 @@ export class CursosProfesorComponent implements OnInit {
     this._ProfesoresService.getProfesor(this.id).subscribe(data => {
 
       console.log(data)
-      this.registroProfesor ={
+      this.registroProfesor = {
         nombre: data.nombre,
         correo: data.correo,
         edad: data.edad,
@@ -163,35 +170,35 @@ export class CursosProfesorComponent implements OnInit {
       console.log(this.registroProfesor)
     })
 
-setTimeout(() => {
+    setTimeout(() => {
 
 
-  console.log("hola1")
-  console.log(this.registroProfesor)
-  console.log("hola")
-      this._ProfesoresService.putContacto(this.id,this.registroProfesor).subscribe(data=>{
+      console.log("hola1")
+      console.log(this.registroProfesor)
+      console.log("hola")
+      this._ProfesoresService.putContacto(this.id, this.registroProfesor).subscribe(data => {
         Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'el curso se ha eliminado con exito',
-            showConfirmButton: false,
-            timer: 1500
+          position: 'center',
+          icon: 'success',
+          title: 'el curso se ha eliminado con exito',
+          showConfirmButton: false,
+          timer: 1500
         })
 
-    }, error =>{
+      }, error => {
         console.log(error);
-    })
-}, 500);
+      })
+    }, 500);
 
 
   }
 
-  actualizarbase(){
+  actualizarbase() {
 
     this._ProfesoresService.getProfesor(this.id).subscribe(data => {
 
       console.log(data)
-      this.registroProfesor ={
+      this.registroProfesor = {
         nombre: data.nombre,
         correo: data.correo,
         edad: data.edad,
@@ -204,34 +211,30 @@ setTimeout(() => {
       console.log(this.registroProfesor)
     })
 
-setTimeout(() => {
+    setTimeout(() => {
 
-
-  console.log("hola1")
-  console.log(this.registroProfesor)
-  console.log("hola")
-      this._ProfesoresService.putContacto(this.id,this.registroProfesor).subscribe(data=>{
+      this._ProfesoresService.putContacto(this.id, this.registroProfesor).subscribe(data => {
         Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'el curso ha creado con exito',
-            showConfirmButton: false,
-            timer: 1500
+          position: 'center',
+          icon: 'success',
+          title: 'el curso ha creado con exito',
+          showConfirmButton: false,
+          timer: 1500
         })
 
-    }, error =>{
+      }, error => {
         console.log(error);
-    })
-}, 500);
+      })
+    }, 500);
   }
 
   obtenerProfesores() {
-    this._ProfesoresService.getProfesores().subscribe(data=>{
+    this._ProfesoresService.getProfesores().subscribe(data => {
       console.log(data)
     });
   }
 
-  obtenerprofesor (){
+  obtenerprofesor() {
     this._ProfesoresService.getProfesor(this.id).subscribe(data => {
       this.cursos = data.cursos;
       console.log(data)

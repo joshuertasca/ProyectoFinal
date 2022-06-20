@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearExamenComponent } from './components/crear-examen/crear-examen.component';
+import { CursosEstudianteComponent } from './components/cursos-estudiante/cursos-estudiante.component';
 import { CursosProfesorComponent } from './components/cursos-profesor/cursos-profesor.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
@@ -15,12 +16,13 @@ const routes: Routes = [
   { path: 'estudiantes', component: EstudiantesComponent},
   { path: 'estudiante/:id', component: EstudianteComponent},
   { path: 'cursosProfesor', component: CursosProfesorComponent},
+  { path: 'cursosEstudiante/:indice', component: CursosEstudianteComponent},
   { path: 'examenesProfesor', component: ExamenesProfesorComponent},
   { path: 'estadisticas', component: EstadisticasComponent},
   { path: 'trofeos', component: TrofeosComponent},
   { path: 'crearExamen', component: CrearExamenComponent},
   { path: 'examen/:indice', component: ExamenesEstudianteComponent},
-
+  { path: '**', redirectTo: '', pathMatch:'full'}
 
 ];
 

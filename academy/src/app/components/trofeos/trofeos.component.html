@@ -12,7 +12,7 @@
           <div class="col" *ngFor="let nivel of niveles; let indice = index">
               <div class="card">
                   <img src="assets/img/{{indice+1}}.png" class="card-img-top" alt="...">
-                  <div class="capa text-center ">
+                  <div *ngIf="!trofeos[indice]" class="capa text-center ">
                       <h5 class="card-title ">{{nivel}}</h5>
                   </div>
               </div>

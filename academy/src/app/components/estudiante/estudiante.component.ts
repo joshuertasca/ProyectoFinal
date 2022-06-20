@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class EstudianteComponent implements OnInit {
 
+  TituloDelComponente:any;
+
   calificaciones = []
 
   contenido:any = []
@@ -22,6 +24,8 @@ export class EstudianteComponent implements OnInit {
   id: string | null;
   InformacionEstudiante: Estudiante[] = [];
   generomujer:boolean=false;
+  tipo:any;
+  NumeroTrofeos:any= 0;
 
   // @HostListener('window:beforeunload', ['$event'])
   // onMessage(event:any) {
@@ -39,6 +43,12 @@ export class EstudianteComponent implements OnInit {
 
   ngOnInit(): void {
     this.rellenarInformacion()
+    this.TituloDelComponente ="Perfil Estudiante"
+    if(localStorage.getItem('tipo')=="estudiante"){
+      this.tipo="estudiante"
+     } else {
+       this.tipo="profesor"
+     }
   }
 
   rellenarInformacion() {
@@ -57,6 +67,17 @@ export class EstudianteComponent implements OnInit {
         }else{
           this.generomujer=false;
         }
+
+        let premios = data.cursos.trofeos;
+        console.log(premios)
+        for (let index:any = 0; index < 15; index++) {
+          console.log(premios[index])
+          if (premios[index]==true) {
+            this.NumeroTrofeos=this.NumeroTrofeos+1;
+          }
+        }
+
+        console.log(this.NumeroTrofeos)
 
 
         this.calificaciones=data.cursos.calificaciones;
