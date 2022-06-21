@@ -1,7 +1,32 @@
 <app-barra-lateral></app-barra-lateral>
 
 <div class=" posicioncomponente">
-  <p>cursos-estudiante works!</p>
+
+  <div class="color4 boxVideo border border-danger px-5">
+    <span #CursoTitle class="text-center  m-1 fw-bold color2 fs-1">{{titulo}}</span>
+
+    <div class="caja  color3 d-flex justify-content-center mt-0">
+
+      <img *ngIf="tipo=='imagen'" #imagen src="{{contenido}}" alt="">
+      <iframe *ngIf="tipo=='video'" #Video class="d-flex justify-content-center mt-4 mb-0 " width="620" height="350"
+        [src]="urlv" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      <p *ngIf="tipo=='texto'" class="texto p-5 fs-3 ">{{contenido}}</p>
+
+    </div>
+
+
+
+    <div class="mt-4 d-flex justify-content-evenly ">
+      <button type="button" class="btn btn-primary buttonCurso px-4 " (click)="back()">Atrás</button>
+      <button type="button" class="btn btn-primary buttonCurso  px-2 " data-color="false" (click)="forward()"
+        #siguiente>Siguiente</button>
+    </div>
+
+    <div>
+    </div>
+  </div>
+
 
 </div>
-

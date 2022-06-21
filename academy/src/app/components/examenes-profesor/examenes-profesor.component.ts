@@ -13,7 +13,7 @@ export class ExamenesProfesorComponent implements OnInit {
 
 
   examenes: any = [];
-  id: string = "62abde3e1f1bb0b48153307a";
+  id: any = "62b10618a41b7ce690364378";
   registroProfesor: any ={};
   TituloDelComponente:any;
   tipo:any;
@@ -24,7 +24,8 @@ export class ExamenesProfesorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // this.id = localStorage.getItem('id')
+    // console.log(localStorage.getItem('id'))
     if(localStorage.getItem('tipo')=="estudiante"){
       this.tipo="estudiante"
      } else {

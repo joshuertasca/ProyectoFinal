@@ -19,6 +19,7 @@ export class EstudiantesComponent implements OnInit {
   listaEstudiantes: Estudiante []= [];
   id: string | null;
   TituloDelComponente:any;
+  correoProfesor:any;
 
   constructor(private fb: FormBuilder, private _CrearEstudianteService: CrearEstudianteService, private router: Router, private idRouter: ActivatedRoute) {
 
@@ -36,6 +37,7 @@ export class EstudiantesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.correoProfesor= localStorage.getItem('correo')
     if (localStorage.getItem('tipo')!='profesor') {
       this.router.navigate([''])
     }
@@ -52,14 +54,13 @@ export class EstudiantesComponent implements OnInit {
 
   guardarEstudiante() {
     //console.log(this.registroForm);
-
     const registroEstudiantes: Estudiante = {
       nombre: this.registroEstudiantes.get('nombre')?.value,
       correo: this.registroEstudiantes.get('correo')?.value,
       edad: this.registroEstudiantes.get('edad')?.value,
       genero: this.registroEstudiantes.get('genero')?.value,
       contrasena: this.registroEstudiantes.get('contrasena')?.value,
-      correoProfesor: "fulano@gmail.com",
+      correoProfesor: this.correoProfesor,
       cursos:{
         "contenido": [{}],
         "calificaciones": [{}],

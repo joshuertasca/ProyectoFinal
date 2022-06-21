@@ -21,10 +21,10 @@ export class ExamenesEstudianteComponent implements OnInit {
   contador:number=0;
   puntaje:number=0;
   valorpregunta:number=0;
-  id: string = "62abde3e1f1bb0b48153307a";
+  id: any = "62b10618a41b7ce690364378";
   nombreExamen: string="";
   indiceExamen: any;
-  idEstudiante: any = ""
+  idEstudiante: any = "62b10ee4a41b7ce69036437c"
   registroEstudiante: any= {};
   TituloDelComponente:any;
   tipo:any;
@@ -35,6 +35,7 @@ export class ExamenesEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // this.id= localStorage.getItem('idP')
     this.llamarinformación ()
 
     setTimeout(() => {

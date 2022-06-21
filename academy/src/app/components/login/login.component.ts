@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.value.Password == data[0].contrasena) {
           console.log("datos correctos")
           //hacer cuando se registra bien un profesor
-          localStorage.setItem('id',data[0]._id);
+          localStorage.setItem('idP',data[0]._id);
           localStorage.setItem('correo',data[0].correo);
           localStorage.setItem('nombre',data[0].nombre);
           localStorage.setItem('tipo',"profesor");
@@ -104,9 +104,10 @@ export class LoginComponent implements OnInit {
         }
         if (this.loginForm.value.Password == data[0].contrasena) {
           console.log("datos correctos")
+
           //hacer cuando se registra bien un estudiante
           let NumeroTrofeos:any;
-          let premios = data.cursos.trofeos;
+          let premios = data[0].cursos.trofeos;
         console.log(premios)
         for (let index:any = 0; index < 15; index++) {
           console.log(premios[index])
@@ -114,6 +115,23 @@ export class LoginComponent implements OnInit {
             NumeroTrofeos=NumeroTrofeos+1;
           }
         }
+
+
+
+
+
+
+        this._ProfesoresService.getProfesorcorreo(data[0].correoProfesor).subscribe(dataP => {
+          console.log(dataP)
+          console.log("hola"+dataP.correo )
+          localStorage.setItem('idP',dataP[0]._id)
+        });
+
+
+
+
+
+
 
           localStorage.setItem('id',data[0]._id);
           localStorage.setItem('correo',data[0].correo);

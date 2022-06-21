@@ -21,7 +21,7 @@ export class EstudianteComponent implements OnInit {
 
   avance:any = []
 
-  id: string | null;
+  id: any;
   InformacionEstudiante: Estudiante[] = [];
   generomujer:boolean=false;
   tipo:any;
@@ -130,6 +130,10 @@ export class EstudianteComponent implements OnInit {
       })
 
 
+
+  }
+
+  actualizartrofeos() {
 
   }
 

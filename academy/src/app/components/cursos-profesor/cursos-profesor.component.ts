@@ -31,7 +31,7 @@ export class CursosProfesorComponent implements OnInit {
   contador: number = 1;
   cursocreado: any = {};
   name: any = {};
-  id: string = "62abde3e1f1bb0b48153307a";
+  id: any = "62b10618a41b7ce690364378";
   profesor: any = {}
   registroProfesor: any = {}
   TituloDelComponente:any;
@@ -51,6 +51,7 @@ export class CursosProfesorComponent implements OnInit {
      }
     this.obtenerprofesor()
     this.TituloDelComponente="Cursos"
+    // this.id = localStorage.getItem('idP')
   }
 
 

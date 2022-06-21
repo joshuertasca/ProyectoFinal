@@ -23,7 +23,7 @@ export class CrearExamenComponent implements OnInit {
 
   preguntas: any = []
 
-  id: string = "62abde3e1f1bb0b48153307a";
+  id: any = "62b10618a41b7ce690364378";
   registroProfesor: any ={};
 
 
@@ -36,6 +36,7 @@ export class CrearExamenComponent implements OnInit {
     }
     this.obtenerprofesor ()
     this.TituloDelComponente="Crear Examen";
+    // this.id=localStorage.getItem('id')
   }
 
   guardarpregunta(pregunta: any, opciona: any, opcionb: any, opcionc: any, opciond: any, respuesta: any) {
@@ -136,14 +137,6 @@ export class CrearExamenComponent implements OnInit {
       console.log(data)
     })
   }
-
-
-
-
-
-
-
-
 
 
 }
