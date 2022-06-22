@@ -152,6 +152,26 @@ export class CursosProfesorComponent implements OnInit {
 
 
   eliminarCurso(posicion: number) {
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar este Curso?',
+      text: "Esta acción no se puede revertir",
+      icon: 'warning',
+      color:'#fff',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borrar',
+      cancelButtonText: 'Cancelar',
+      background: '#34a85391',
+      backdrop: `
+  rgba(0,0,123,0.4)
+
+`
+
+}).then((result) => {
+  if (result.isConfirmed) {
+
     this.cursos.splice(posicion, 1);
     console.log(this.cursos);
 
@@ -190,6 +210,10 @@ export class CursosProfesorComponent implements OnInit {
         console.log(error);
       })
     }, 500);
+
+  }})
+
+
 
 
   }

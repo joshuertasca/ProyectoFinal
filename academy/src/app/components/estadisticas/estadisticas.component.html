@@ -4,27 +4,27 @@
 
   <p class=" fs-3 fw-bold mb-5">EStadisticas Generales</p>
 
-<div class=" d-flex mt-5 pt-5">
+<div class=" d-flex">
 <ngx-charts-advanced-pie-chart
+  ngClass="mt-0 pt-0"
   [view]="[500, 300]"
   [results]="single"
   [gradient]="true"
   class=" m-0 p-0 justify-content-center align-content-center align-items-center" >
 </ngx-charts-advanced-pie-chart>
 
-<ngx-charts-bar-vertical-2d
-  [view]="[500, 300]"
-  [results]="multi"
-  [gradient]="true"
+<ngx-charts-bar-horizontal
+  [view]="[500, 400]"
+  [results]="trofeos"
+  [gradient]="false"
   [xAxis]="true"
   [yAxis]="true"
-  [legend]="true"
+  [legend]="false"
   [showXAxisLabel]="true"
   [showYAxisLabel]="true"
-  [xAxisLabel]="'cursos'"
-  [yAxisLabel]="'Calificaciones'"
-  [legendTitle]="'Calificaciones /100'">
-</ngx-charts-bar-vertical-2d>
+  [xAxisLabel]="'Estudiante'"
+  [yAxisLabel]="'Cantidad trofeos ganados'">
+</ngx-charts-bar-horizontal>
 </div>
 
 

@@ -111,13 +111,21 @@ export class EstudianteComponent implements OnInit {
 
   eliminarEstudiante(id:any){    //se deberia usar string, pero se pone any para empezar mas facil
       Swal.fire({
-        title: 'desea eliminar contacto=',
-        text: "You won't be able to revert this!",
+        title: '¿Está seguro que desea eliminar este contacto?',
+        text: "Esta acción no se puede revertir",
         icon: 'warning',
+        color:'#fff',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, borrar',
+        cancelButtonText: 'Cancelar',
+        background: '#34a85391',
+        backdrop: `
+    rgba(0,0,123,0.4)
+
+  `
+
       }).then((result) => {
         if (result.isConfirmed) {
 
