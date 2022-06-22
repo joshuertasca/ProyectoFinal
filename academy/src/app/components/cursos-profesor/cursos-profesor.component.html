@@ -22,7 +22,7 @@
           <div class="card-body bg-color3 border rounded-pill">
             <h5 class="card-title fs-3 fw-bold">{{curso.nombre}}</h5>
             <div class="d-fle">
-              <a class="btn btn-primary text-center" [routerLink]="['/cursosEstudiante/'+indice]">Ver Curso</a>
+              <a *ngIf="tipo=='estudiante'" class="btn btn-primary text-center" [routerLink]="['/cursosEstudiante/'+indice]">Ver Curso</a>
               <a *ngIf="tipo!='estudiante'" class="btn btn-light "><i class="fa-solid fa-trash-can"(click)="eliminarCurso(indice)" ></i></a>
             </div>
           </div>

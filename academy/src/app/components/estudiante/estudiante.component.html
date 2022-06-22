@@ -46,7 +46,7 @@
       </div>
       <div class="col-2 ps-5 pt-4 mt-4 ">
         <i *ngIf="tipo!='estudiante'" (click)="eliminarEstudiante(InformacionEstudiante[4])" class="borrarEstudiante fa-solid py-5 my-5  fa-person-circle-minus fa-4x color3"></i>
-        <i *ngIf="tipo!='estudiante'" class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2"></i>
+        <i *ngIf="tipo!='estudiante'" class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
       </div>
     </div>
   </div>
@@ -54,26 +54,34 @@
 
 
 
+</div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Activar y Desativar Trofeos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div  class=" col-4" *ngFor="let trofeo of trofeos; let indice = index">
+              <p class="text-center fw-bold">{{trofeo}}</p>
+              <div class="d-flex">
+                <button type="button" class="btn btn-dark w-50 p-0 m-0" (click)="desactivar(indice)" >Desactivar</button>
+                <button type="button" class="btn btn-success w-50 p-2 m-0" (click)="activar(indice)" >Activar</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer m-0 p-0">
+        <button type="button" class="btn btn-secondary m-0 p-4 w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -21,7 +21,7 @@
           <div class="card-body bg-color2 border rounded-start rounded-pill">
             <h5 class="card-title fs-3 fw-bold text-white">{{examen.nombre}} </h5>
             <div class="d-fle">
-              <a class="btn btn-primary text-center" [routerLink]="['/examen/'+indice]" >Ver Examen</a>
+              <a *ngIf="tipo=='estudiante'" class="btn btn-primary text-center" [routerLink]="['/examen/'+indice]" >Ver Examen</a>
               <a *ngIf="tipo!='estudiante'" class="btn btn-light " ><i *ngIf="tipo!='estudiante'" class="fa-solid fa-trash-can" (click)="borrarexamen(indice)"></i></a>
             </div>
           </div>

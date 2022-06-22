@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { Estudiante } from 'src/app/models/estudiantes';
@@ -13,6 +13,11 @@ import Swal from 'sweetalert2';
 })
 export class EstudianteComponent implements OnInit {
 
+  @ViewChild('desactivar') desactivarHTML?: ElementRef
+  @ViewChild('activar') activarHTML?: ElementRef
+
+
+
   TituloDelComponente:any;
 
   calificaciones = []
@@ -26,6 +31,8 @@ export class EstudianteComponent implements OnInit {
   generomujer:boolean=false;
   tipo:any;
   NumeroTrofeos:any= 0;
+  trofeos:any=["nivel 1", "nivel 2", "nivel 3", "nivel 4", "nivel 5" , "nivel 6" , "nivel 7" , "nivel 8" , "nivel 9" , "nivel 10" , "nivel 11" , "nivel 12" , "nivel 13" , "nivel 14" , "nivel 15"]
+  registroEstudiante:any;
 
   // @HostListener('window:beforeunload', ['$event'])
   // onMessage(event:any) {
@@ -85,7 +92,7 @@ export class EstudianteComponent implements OnInit {
         console.log(this.contenido)
         this.avance = [
           {
-            "name": "calificación",
+            "name": "avance curso",
             "series": this.contenido
           }
 
@@ -133,7 +140,79 @@ export class EstudianteComponent implements OnInit {
 
   }
 
-  actualizartrofeos() {
+
+
+  desactivar(indice:any){
+    this._CrearEstudianteService.getEstudiante(this.id).subscribe(data => {
+
+      let trofeos = data.cursos.trofeos
+      trofeos[indice]=false
+      console.log(trofeos)
+      let cursos = {
+        contenido: data.cursos.contenido,
+        calificaciones:data.cursos.contenido,
+        trofeos: trofeos
+      }
+      this.registroEstudiante = {
+        nombre: data.nombre,
+        correo: data.correo,
+        edad: data.edad,
+        genero: data.genero,
+        correoProfesor: data.correoProfesor,
+        contrasena: data.contrasena,
+        cursos: cursos
+
+      }
+      console.log(this.registroEstudiante)
+    })
+
+    setTimeout(() => {
+
+      this._CrearEstudianteService.putEstudiante(this.id, this.registroEstudiante).subscribe(data => {
+        console.log("los trofeos se actualizaron correctamente")
+
+      }, error => {
+        console.log(error);
+      })
+    }, 500);
+
+
+  }
+
+  activar(indice:any){
+    this._CrearEstudianteService.getEstudiante(this.id).subscribe(data => {
+
+      let trofeos = data.cursos.trofeos
+      trofeos[indice]=true
+      console.log(trofeos)
+      let cursos = {
+        contenido: data.cursos.contenido,
+        calificaciones:data.cursos.contenido,
+        trofeos: trofeos
+      }
+      this.registroEstudiante = {
+        nombre: data.nombre,
+        correo: data.correo,
+        edad: data.edad,
+        genero: data.genero,
+        correoProfesor: data.correoProfesor,
+        contrasena: data.contrasena,
+        cursos: cursos
+
+      }
+      console.log(this.registroEstudiante)
+    })
+
+    setTimeout(() => {
+
+      this._CrearEstudianteService.putEstudiante(this.id, this.registroEstudiante).subscribe(data => {
+        console.log("los trofeos se actualizaron correctamente")
+
+      }, error => {
+        console.log(error);
+      })
+    }, 500);
+
 
   }
 

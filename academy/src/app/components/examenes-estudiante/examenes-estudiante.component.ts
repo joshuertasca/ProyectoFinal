@@ -16,67 +16,67 @@ export class ExamenesEstudianteComponent implements OnInit {
   @ViewChild('respuesta') respuestaHTML?: ElementRef
   @ViewChild('btnconfirmar') btnHTML?: ElementRef
 
-  preguntas: any = [{"pregunta":"contenido de la pregunta 1","opciona":"contenido opcion de respuesta","opcionb":"contenido opcion de respuesta","opcionc":"contenido opcion de respuesta","opciond":"contenido opcion de respuesta", "respuesta":"A"}];
-  respuesta:string ='';
-  contador:number=0;
-  puntaje:number=0;
-  valorpregunta:number=0;
+  preguntas: any = [{ "pregunta": "contenido de la pregunta 1", "opciona": "contenido opcion de respuesta", "opcionb": "contenido opcion de respuesta", "opcionc": "contenido opcion de respuesta", "opciond": "contenido opcion de respuesta", "respuesta": "A" }];
+  respuesta: string = '';
+  contador: number = 0;
+  puntaje: number = 0;
+  valorpregunta: number = 0;
   id: any = "62b10618a41b7ce690364378";
-  nombreExamen: string="";
+  nombreExamen: string = "";
   indiceExamen: any;
   idEstudiante: any = "62b10ee4a41b7ce69036437c"
-  registroEstudiante: any= {};
-  TituloDelComponente:any;
-  tipo:any;
+  registroEstudiante: any = {};
+  TituloDelComponente: any;
+  tipo: any;
 
-  constructor(private _ProfesoresService: ProfesoresService, private _CrearEstudiantesServive:CrearEstudianteService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) {
+  constructor(private _ProfesoresService: ProfesoresService, private _CrearEstudiantesServive: CrearEstudianteService, private renderer2: Renderer2, private router: Router, private idRouter: ActivatedRoute) {
     this.indiceExamen = this.idRouter.snapshot.paramMap.get('indice')
-   }
+  }
 
   ngOnInit(): void {
 
     // this.id= localStorage.getItem('idP')
-    this.llamarinformación ()
+    this.llamarinformación()
 
     setTimeout(() => {
-      if(localStorage.getItem('tipo')=="estudiante"){
-        this.tipo="estudiante"
-        this.idEstudiante=localStorage.getItem('id')
+      if (localStorage.getItem('tipo') == "estudiante") {
+        this.tipo = "estudiante"
+        this.idEstudiante = localStorage.getItem('id')
         console.log(this.idEstudiante)
-       } else {
-         this.tipo="profesor"
-       }
-      this.calcularvalorpregunta ()
+      } else {
+        this.tipo = "profesor"
+      }
+      this.calcularvalorpregunta()
     }, 1000);
   }
 
-  siguiente(){
+  siguiente() {
 
-    if (this.contador< this.preguntas.length-1) {
+    if (this.contador < this.preguntas.length - 1) {
       const respuesta1 = this.respuestaHTML?.nativeElement;
       this.renderer2.setProperty(respuesta1, 'innerHTML', 'No ha seleccionado ninguna respuesta');
 
-      console.log(this.preguntas[this.contador].respuesta+"respuesta correcta")
-      console.log(this.respuesta+ "respuesta dada")
-      if (this.preguntas[this.contador].respuesta==this.respuesta) {
-        this.puntaje= this.puntaje+this.valorpregunta;
+      console.log(this.preguntas[this.contador].respuesta + "respuesta correcta")
+      console.log(this.respuesta + "respuesta dada")
+      if (this.preguntas[this.contador].respuesta == this.respuesta) {
+        this.puntaje = this.puntaje + this.valorpregunta;
       }
-      this.respuesta=""
-      this.contador= this.contador+1;
+      this.respuesta = ""
+      this.contador = this.contador + 1;
       console.log(this.puntaje)
 
       const boton = this.btnHTML?.nativeElement;
       this.renderer2.setAttribute(boton, 'disabled', '');
 
-    } else{
+    } else {
 
-      if (this.preguntas[this.contador].respuesta==this.respuesta) {
-        this.puntaje= this.puntaje+this.valorpregunta;
+      if (this.preguntas[this.contador].respuesta == this.respuesta) {
+        this.puntaje = this.puntaje + this.valorpregunta;
       }
       console.log(this.puntaje)
       Swal.fire({
         title: 'Examen Finalizado',
-        text: "su resultado final fue de "+ this.puntaje +" % sobre 100%",
+        text: "su resultado final fue de " + this.puntaje + " % sobre 100%",
         icon: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
@@ -84,7 +84,7 @@ export class ExamenesEstudianteComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
 
-          this.subirPuntaje ()
+          this.subirPuntaje()
           setTimeout(() => {
             this.router.navigate(['examenesProfesor'])
           }, 100);
@@ -97,64 +97,64 @@ export class ExamenesEstudianteComponent implements OnInit {
 
   }
 
-  a(){
+  a() {
     const respuesta = this.respuestaHTML?.nativeElement;
     this.renderer2.setProperty(respuesta, 'innerHTML', 'La respuesta seleccionada es A');
-    this.respuesta="a"
+    this.respuesta = "a"
     const boton = this.btnHTML?.nativeElement;
     this.renderer2.removeAttribute(boton, 'disabled');
   }
-  b(){
+  b() {
     const respuesta = this.respuestaHTML?.nativeElement;
     this.renderer2.setProperty(respuesta, 'innerHTML', 'La respuesta seleccionada es B');
-    this.respuesta="b"
+    this.respuesta = "b"
     const boton = this.btnHTML?.nativeElement;
     this.renderer2.removeAttribute(boton, 'disabled');
   }
-  c(){
+  c() {
     const respuesta = this.respuestaHTML?.nativeElement;
     this.renderer2.setProperty(respuesta, 'innerHTML', 'La respuesta seleccionada es C');
-    this.respuesta="c"
+    this.respuesta = "c"
     const boton = this.btnHTML?.nativeElement;
     this.renderer2.removeAttribute(boton, 'disabled');
   }
-  d(){
+  d() {
     const respuesta = this.respuestaHTML?.nativeElement;
     this.renderer2.setProperty(respuesta, 'innerHTML', 'La respuesta seleccionada es D');
-    this.respuesta="d"
+    this.respuesta = "d"
     const boton = this.btnHTML?.nativeElement;
     this.renderer2.removeAttribute(boton, 'disabled');
   }
-  calcularvalorpregunta (){
+  calcularvalorpregunta() {
     let Npreguntas = this.preguntas.length;
-    this.valorpregunta= 100/Npreguntas;
+    this.valorpregunta = 100 / Npreguntas;
   }
-  llamarinformación (){
+  llamarinformación() {
     this._ProfesoresService.getProfesor(this.id).subscribe(data => {
       console.log(data)
-      this.indiceExamen= parseInt(this.indiceExamen)
+      this.indiceExamen = parseInt(this.indiceExamen)
       this.nombreExamen = data.examenes[this.indiceExamen].nombre
       this.preguntas = data.examenes[this.indiceExamen].preguntas
     })
   }
 
-  subirPuntaje (){
+  subirPuntaje() {
 
     this._CrearEstudiantesServive.getEstudiante(this.idEstudiante).subscribe(data => {
 
       let calificaciones = data.cursos.calificaciones;
       for (let index = 0; index < this.indiceExamen; index++) {
         if (!calificaciones[index]) {
-          calificaciones[index]={name: "-", value: 0};
+          calificaciones[index] = { name: "-", value: 0 };
         }
 
       }
 
-      calificaciones[this.indiceExamen]= {name: this.nombreExamen, value: this.puntaje};
+      calificaciones[this.indiceExamen] = { name: this.nombreExamen, value: this.puntaje };
       console.log(calificaciones)
       let cursos = {
         contenido: data.cursos.contenido,
-        calificaciones:calificaciones,
+        calificaciones: calificaciones,
         trofeos: data.cursos.trofeos
       }
       this.registroEstudiante = {

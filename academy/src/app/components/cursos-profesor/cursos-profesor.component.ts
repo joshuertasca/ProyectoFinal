@@ -56,8 +56,8 @@ export class CursosProfesorComponent implements OnInit {
 
 
   addImagen(): void {
-    const imagen = this.addimagenHTML?.nativeElement;
     const imput = this.imputHTML?.nativeElement;
+    const imagen = this.addimagenHTML?.nativeElement;
     this.renderer2.setProperty(imagen, 'innerHTML', 'Agregar Imagen');
     this.renderer2.setAttribute(imput, 'placeholder', 'Pegar Link de la Imagen')
     this.tipo1 = "imagen";
@@ -114,8 +114,8 @@ export class CursosProfesorComponent implements OnInit {
     }
 
 
-    this.input1.nativeElement.value = ' ';
-    this.input2.nativeElement.value = ' ';
+    this.input1.nativeElement.value = '';
+    this.input2.nativeElement.value = '';
 
   }
 
@@ -143,7 +143,7 @@ export class CursosProfesorComponent implements OnInit {
     this.addImagen();
     console.log(this.cursos);
 
-    this.nombre.nativeElement.value = ' ';
+    this.nombre.nativeElement.value = '';
 
     this.actualizarbase();
 

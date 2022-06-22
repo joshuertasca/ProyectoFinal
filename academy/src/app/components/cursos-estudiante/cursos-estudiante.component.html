@@ -8,10 +8,12 @@
     <div class="caja  color3 d-flex justify-content-center mt-0">
 
       <img *ngIf="tipo=='imagen'" #imagen src="{{contenido}}" alt="">
-      <iframe *ngIf="tipo=='video'" #Video class="d-flex justify-content-center mt-4 mb-0 " width="620" height="350"
-        [src]="urlv" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+
+
+      <div #video >
+
+      </div>
+
       <p *ngIf="tipo=='texto'" class="texto p-5 fs-3 ">{{contenido}}</p>
 
     </div>

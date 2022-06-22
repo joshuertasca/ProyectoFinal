@@ -81,10 +81,13 @@ export class EstadisticasComponent implements OnInit {
 
   ngOnInit(): void {
     this.TituloDelComponente="EStadisticas de los Estudiantes"
-
     if (localStorage.getItem('tipo')!='profesor') {
       this.router.navigate([''])
     }
+    this.llamarinformacion()
+  }
+
+  llamarinformacion(){
 
   }
 
