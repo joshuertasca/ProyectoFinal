@@ -1,51 +1,66 @@
-:root{
-  --color1:#dddf00;
+:root {
+  --color1: #dddf00;
   --color2: #007f5f;
   --color3: #80b918;
-  --color4: #FFFFFF
-  --color5: #000000
-  --transparente: #ffebcd00
+  --color4: #FFFFFF --color5: #000000 --transparente: #ffebcd00
 }
 
 .color1 {
-  color:var(--color1);
-}
-.color2 {
-  color:var(--color2);
-}
-.color3 {
-  color:var(--color3);
-}
-.color4 {
-  color:var(--color4);
-}
-.color5 {
-  color:var(--color5);
-}
-.transparente {
-  color:var(--transparente);
+  color: var(--color1);
 }
 
-.bg-color1{
-  background-color:var(--color1);
+.color2 {
+  color: var(--color2);
 }
-.bg-color2{
-  background-color:var(--color2);
+
+.color3 {
+  color: var(--color3);
 }
-.bg-color3{
-  background-color:var(--color3);
+
+.color4 {
+  color: var(--color4);
 }
-.bg-transparente{
-  background-color:var(--transparente);
+
+.color5 {
+  color: var(--color5);
+}
+
+.transparente {
+  color: var(--transparente);
+}
+
+.bg-color1 {
+  background-color: var(--color1);
+}
+
+.bg-color2 {
+  background-color: var(--color2);
+}
+
+.bg-color3 {
+  background-color: var(--color3);
+}
+
+.bg-transparente {
+  background-color: var(--transparente);
 }
 
 .cursorpointed {
   cursor: pointer;
 }
 
-.posicioncomponente {
-  padding-top: 100px;
-  padding-left: 265px;
-  padding-right: 45px;
+@media (max-width:2000px) {
+  .posicioncomponente {
+    padding-top: 100px;
+    padding-left: 265px;
+    padding-right: 45px;
+  }
 }
 
+@media (max-width:1200px) {
+  .posicioncomponente {
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 45px;
+  }
+}

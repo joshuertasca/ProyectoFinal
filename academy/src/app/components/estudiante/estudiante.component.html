@@ -46,7 +46,7 @@
       </div>
       <div class="col-2 ps-5 pt-4 mt-4 ">
         <i *ngIf="tipo!='estudiante'" (click)="eliminarEstudiante(InformacionEstudiante[4])" class="borrarEstudiante fa-solid py-5 my-5  fa-person-circle-minus fa-4x color3"></i>
-        <i *ngIf="tipo!='estudiante'" class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+        <i *ngIf="tipo!='estudiante'" class="fa-solid pt-4 mt-4  fa-trophy fa-4x fa-bounce color2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
       </div>
     </div>
   </div>
@@ -57,31 +57,40 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Activar y Desativar Trofeos</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div  class=" col-4" *ngFor="let trofeo of trofeos; let indice = index">
-              <p class="text-center fw-bold">{{trofeo}}</p>
-              <div class="d-flex">
-                <button type="button" class="btn btn-dark w-50 p-0 m-0" (click)="desactivar(indice)" >Desactivar</button>
-                <button type="button" class="btn btn-success w-50 p-2 m-0" (click)="activar(indice)" >Activar</button>
+  <!-- Modal -->
+  <div class="modal fade py-5 " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content habilita mb-5 pb-5">
+        <div class="modal-header">
+          <h5 class="modal-title titulomodal " id="staticBackdropLabel">HABILITA LOS TROFEOS</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
 
+          <div class="cartas ps-5">
+            <div class="row row-cols-1 row-cols-md-5 g-5 figura">
+
+              <div class="col" *ngFor="let trofeo of trofeos; let indice = index">
+                <div class="card1">
+                  <img *ngIf="oscurecer[indice]" src="assets/img/{{indice+1}}.png" class="card-img-top" alt="...">
+                  <img *ngIf="!oscurecer[indice]"  src="assets/img/{{indice+1}}.png" class="card-img-top oscuro" alt="...">
+                  <div class="capa text-center ">
+                    <div class="modalfooter d-flex">
+                      <button type="button" class="boton btn1 btn-secondary rounded-circle ms-2" (click)="desactivar(indice)">X</button>
+                      <button type="button" class="boton2 btn1 btn-secondary rounded-circle ms-2" (click)="activar(indice)">✓</button>
+                    </div>
+                  </div>
+                </div>
               </div>
+
             </div>
+
+
+          </div>
+
+
           </div>
         </div>
       </div>
-      <div class="modal-footer m-0 p-0">
-        <button type="button" class="btn btn-secondary m-0 p-4 w-100" data-bs-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>

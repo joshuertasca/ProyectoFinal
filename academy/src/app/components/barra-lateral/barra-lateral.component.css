@@ -1,3 +1,4 @@
+
 .barra {
   position:fixed ;
   z-index: 100;
@@ -5,6 +6,18 @@
   bottom: 0;
   left: 0;
   width: 220px;
+  background-color: rgb(232, 255, 232);
+  border-color:var(--color1)
+}
+
+
+.barra2 {
+  position:fixed ;
+  z-index: 100;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  width: 100px;
   background-color: rgb(232, 255, 232);
   border-color:var(--color1)
 }

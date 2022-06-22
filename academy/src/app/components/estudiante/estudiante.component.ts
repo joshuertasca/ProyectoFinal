@@ -25,7 +25,7 @@ export class EstudianteComponent implements OnInit {
   contenido:any = []
 
   avance:any = []
-
+  oscurecer: any = [true, true,true, true,true, true,true, true,true, true,true, true,true, true,true];
   id: any;
   InformacionEstudiante: Estudiante[] = [];
   generomujer:boolean=false;
@@ -68,7 +68,7 @@ export class EstudianteComponent implements OnInit {
         this.InformacionEstudiante[2] = data.edad;
         this.InformacionEstudiante[3] = data.contrasena;
         this.InformacionEstudiante[4] = data._id;
-
+        this.oscurecer=data.cursos.trofeos
         if (data.genero=="mujer") {
           this.generomujer=true;
         }else{
@@ -143,6 +143,7 @@ export class EstudianteComponent implements OnInit {
 
 
   desactivar(indice:any){
+    this.oscurecer[indice]=false
     this._CrearEstudianteService.getEstudiante(this.id).subscribe(data => {
 
       let trofeos = data.cursos.trofeos
@@ -180,6 +181,7 @@ export class EstudianteComponent implements OnInit {
   }
 
   activar(indice:any){
+    this.oscurecer[indice]=true
     this._CrearEstudianteService.getEstudiante(this.id).subscribe(data => {
 
       let trofeos = data.cursos.trofeos
@@ -215,5 +217,6 @@ export class EstudianteComponent implements OnInit {
 
 
   }
+
 
 }

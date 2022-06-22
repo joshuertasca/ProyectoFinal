@@ -103,8 +103,8 @@ export class CursosEstudianteComponent implements OnInit {
             this._CrearEstudiantesServive.getEstudiante(this.idEstudiante).subscribe(data => {
               let contenido = data.cursos.contenido;
               for (let index = 0; index < this.indicecurso; index++) {
-                if (!contenido[index]) {
-                  contenido[index] = { name: "curso" + index + 1, value: 0 };
+                if (!contenido[index]||contenido[index]=={}) {
+                  contenido[index] = { name: "curso" + index, value: 0 };
                 }
 
               }
