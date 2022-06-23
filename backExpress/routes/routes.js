@@ -17,6 +17,7 @@ router.post('/crear-cuenta-estudiante', estudianteController.crearEstudiante)
 router.get('/obtener-lista-estudiantes', estudianteController.obtenerEstudiantes);
 router.get('/estudiante/:id', estudianteController.obtenerEstudiante);
 router.get('/estudiantecorreo/:correo', estudianteController.obtenerEstudianteCorreo);
+router.get('/estudiantecorreoprofesor/:correoProfesor', estudianteController.obtenerEstudiantesCorreoProfesor);
 router.put('/actualizar-estudiante/:id', estudianteController.actualizarEstudiante);
 router.delete('/delete-estudiante/:id', estudianteController.borrarEstudiante);
 

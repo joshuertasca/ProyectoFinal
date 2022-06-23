@@ -16,6 +16,10 @@ export class CrearEstudianteService {
     return this.http.get(this.url+"obtener-lista-estudiantes")
   }
 
+  getEstudiantesProfesor (correoProfesor:any): Observable<any>{     // vaya al contedido vuelvalo asincrono y conviertaalo en un tipo any
+    return this.http.get(this.url+"estudiantecorreoprofesor/"+ correoProfesor)
+  }
+
   getEstudiante (id:string): Observable<any>{     // vaya al contedido vuelvalo asincrono y conviertaalo en un tipo any
     return this.http.get(this.url +"estudiante/"+ id)
   }

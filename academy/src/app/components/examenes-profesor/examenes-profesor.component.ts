@@ -30,6 +30,7 @@ export class ExamenesProfesorComponent implements OnInit {
       this.tipo="estudiante"
      } else {
        this.tipo="profesor"
+       this.id= localStorage.getItem('id')
      }
 
     this.obtenerprofesor();

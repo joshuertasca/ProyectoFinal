@@ -62,6 +62,25 @@ exports.obtenerEstudianteCorreo = async(req, res) => {
 
 }
 
+
+exports.obtenerEstudiantesCorreoProfesor = async(req, res) => {
+    try {
+        //let estudiante = await Estudiante.findOne({"usuario":req.params.usuario})
+        let estudiante = await Estudiante.find({correoProfesor: req.params.correoProfesor})   //req.params es para adquirir la id que le enviamos al url y que llame el objeto especifico
+        if (!estudiante) {
+            res.status(404).json({mensaje:"no existe"})
+        }
+        res.json(estudiante);
+
+    } catch (error){
+        console.log(error)
+        res.status(500).send("hay error")
+    }
+
+}
+
+
+
 exports.actualizarEstudiante = async(req, res) => {
     try {
         const {nombre, correo, edad, genero, correoProfesor, contrasena, cursos}= req.body  // lo que hace es que crea la constante y le asiga los valores del body en el orden a los datos de la constante

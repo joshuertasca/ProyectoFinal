@@ -37,16 +37,23 @@ export class EstudiantesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.correoProfesor= localStorage.getItem('correo')
+      this.correoProfesor= localStorage.getItem('correo')
+
     if (localStorage.getItem('tipo')!='profesor') {
       this.router.navigate([''])
     }
-    this.obtenerEstudiantes()
+    this.obtenerEstudiantes(this.correoProfesor)
     this.TituloDelComponente="Lista de Estudiantes"
   }
 
-  obtenerEstudiantes() {
-    this._CrearEstudianteService.getEstudiantes().subscribe(data=>{
+  // obtenerEstudiantes() {
+  //   this._CrearEstudianteService.getEstudiantes().subscribe(data=>{
+  //     console.log(data)
+  //     this.listaEstudiantes= data;
+  //   });
+  // }
+  obtenerEstudiantes(correoProfesor:any) {
+    this._CrearEstudianteService.getEstudiantesProfesor(correoProfesor).subscribe(data=>{
       console.log(data)
       this.listaEstudiantes= data;
     });
