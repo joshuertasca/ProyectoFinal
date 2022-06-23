@@ -8,21 +8,21 @@
 
     <div class="mb-2"><a [routerLink]="['/examenesProfesor']" class=" pointer text-decoration-none text-black"><i
           class="fa-solid fa-clipboard-question mb-3 me-3"></i>
-        Examenes</a></div>
+        Exámenes</a></div>
 
     <div class="mb-2"><a [routerLink]="['/cursosProfesor']" class=" pointer text-decoration-none text-black"><i
           class="fa-solid fa-chalkboard-user mb-3 me-3"></i> Cursos</a></div>
 
 
-    <div *ngIf="tipo!='estudiante'" class="mb-2"><a [routerLink]="['/estadisticas']"
-        class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
-        Estadisticas</a></div>
 
 
     <div *ngIf="tipo=='estudiante'" class="mb-2"><a [routerLink]="['/trofeos']"
-        class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
-        Trofeos</a></div>
+      class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
+    Trofeos</a></div>
 
+    <div class="mb-2"><a [routerLink]="['/estadisticas']"
+        class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
+    Estadísticas</a></div>
   </div>
 </div>
 
@@ -40,14 +40,13 @@
             class="fa-solid fa-chalkboard-user mb-3 me-3"></i> </a></div>
 
 
-      <div *ngIf="tipo!='estudiante'" class="mb-2"><a [routerLink]="['/estadisticas']"
-          class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
-        </a></div>
-
-
       <div *ngIf="tipo=='estudiante'" class="mb-2"><a [routerLink]="['/trofeos']"
+        class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
+      </a></div>
+
+      <div class="mb-2"><a [routerLink]="['/estadisticas']"
           class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
-        </a></div>
+      </a></div>
 
     </div>
 

@@ -27,7 +27,7 @@ export class BarraLateralComponent implements OnInit {
      this.tituloestudiantes="Estudiante"
      this.tipo="estudiante"
     } else {
-      this.tituloestudiantes="Lista Estudiantes"
+      this.tituloestudiantes="Lista: Estudiantes"
       this.tipo="profesor"
     }
 
