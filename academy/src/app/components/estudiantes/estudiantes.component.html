@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-success mx-5 my-4 py-2 px-5" data-bs-toggle="modal"
+  <button type="button" class="btn btn-success mx-5 my-4 py-2 px-5 boton-estudiantes" data-bs-toggle="modal"
     data-bs-target="#staticBackdrop"> + Crear Estudiante Nuevo</button>
 
   <div *ngFor="let estudiante of listaEstudiantes; let indice = index">
@@ -26,7 +26,7 @@
       <div class=" container-fluid">
         <div class="row">
           <div class="col-3">
-            <p class="mt-3  fw-bold">{{estudiante.nombre}}</p>
+            <p class="mt-3  fw-bold color2">{{estudiante.nombre}}</p>
           </div>
           <div class="col-3">
             <p class="mt-3"><i class="fa-solid fa-envelope me-3"></i>{{estudiante.correo}}</p>
@@ -85,7 +85,7 @@
               <button type="button" class="border-0 rounded-end rounded-pill btn btn-secondary p-0 w-50 h-100 m-0"
                 data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" [disabled]="registroEstudiantes.invalid"
-                class="border-0 rounded-start rounded-pill btn btn-primary p-0 w-50 h-100 m-0" data-bs-dismiss="modal">Crear Cuenta</button>
+                class="border-0 rounded-start rounded-pill btn btn-success p-0 w-50 h-100 m-0" data-bs-dismiss="modal">Crear Cuenta</button>
             </div>
           </form>
         </div>

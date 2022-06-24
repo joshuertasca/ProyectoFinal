@@ -3,25 +3,25 @@
 <div class="col-7 border-end border-5 barra d-none d-lg-none d-xl-block">
   <div class="ms-5 mt-5 ">
     <div *ngIf="tipo!='estudiante'" class="mb-2"> <a #estudiantes [routerLink]="['/estudiantes']"
-        class=" pointer text-decoration-none text-black fs-6"><i class="fa-solid fa-graduation-cap mb-3 me-3"></i>
+        class=" pointer text-decoration-none color2 boton fs-6"><i class="fa-solid fa-graduation-cap mb-3 me-3"></i>
         {{ tituloestudiantes}}</a></div>
 
-    <div class="mb-2"><a [routerLink]="['/examenesProfesor']" class=" pointer text-decoration-none text-black"><i
-          class="fa-solid fa-clipboard-question mb-3 me-3"></i>
+    <div class="mb-2"><a [routerLink]="['/examenesProfesor']" class=" pointer text-decoration-none color2 boton"><i
+          class="fa-solid fa-clipboard-question mb-3 me-3 color2 boton"></i>
         Exámenes</a></div>
 
-    <div class="mb-2"><a [routerLink]="['/cursosProfesor']" class=" pointer text-decoration-none text-black"><i
-          class="fa-solid fa-chalkboard-user mb-3 me-3"></i> Cursos</a></div>
+    <div class="mb-2"><a [routerLink]="['/cursosProfesor']" class=" pointer text-decoration-none color2 boton"><i
+          class="fa-solid fa-chalkboard-user mb-3 me-3 color2 boton"></i> Cursos</a></div>
 
 
 
 
     <div *ngIf="tipo=='estudiante'" class="mb-2"><a [routerLink]="['/trofeos']"
-      class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
+      class=" pointer text-decoration-none color2 boton"><i class="fa-solid fa-chart-line mb-3 me-3 color2 boton"></i>
     Trofeos</a></div>
 
     <div class="mb-2"><a [routerLink]="['/estadisticas']"
-        class=" pointer text-decoration-none text-black"><i class="fa-solid fa-chart-line mb-3 me-3"></i>
+        class=" pointer text-decoration-none color2 boton"><i class="fa-solid fa-chart-line mb-3 me-3 color2 boton"></i>
     Estadísticas</a></div>
   </div>
 </div>

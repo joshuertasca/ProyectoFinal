@@ -25,3 +25,6 @@
 .pointer {
   cursor: pointer;
 }
+.boton:hover{
+  color: var(--color3);
+}
